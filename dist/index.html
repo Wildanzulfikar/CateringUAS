@@ -3,11 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
   <link href="output.css" rel="stylesheet">
 </head>
 <body>
-  <h1 class="text-3xl font-bold">
-    Hello world!
-  </h1>
+  <div class="w-full h-screen bg-no-repeat bg-center bg-cover bg-[url(img/hero-image.png)] fixed -z-10">
+  </div>
+  <div class="h-full flex flex-col justify-center items-center pb-12">
+    <div class="text-center text-white font-['Kumbh Sans'] mt-52 font-bold text-8xl">
+      <h1>Welcome to <br> Catering Ramah</h1>
+    </div>
+    <div class="flex gap-8 mt-6 font-medium text-amber-300">
+      <p>Sehat</p>
+      <p>|</p>
+      <p>Enak</p>
+      <p>|</p>
+      <p>Halal</p>
+    </div>
+    <div class="w-full flex justify-between mt-40 px-24 text-white">
+      <div class="flex items-center">
+        <img src="img/logo-whatsapp.png" alt="wa" width="40px">
+        <a class="px-4 py-1 rounded-md font-medium bg-green-500" href="https://6281906738256">WhatsApp</a>
+      </div>
+      <div class="flex items-center gap-1">
+        <img src="img/Logo-de-instagram-original.png" alt="instagram" width="36px">
+        <a class="px-4 py-1 rounded-md font-medium bg-rose-500" href="https://instagram.com">Instagram</a>
+      </div>
+      <div class="flex items-center">
+        <img src="img/tiktok-logo.png" alt="tiktok-logo" width="40px">
+        <a class="px-4 py-1 rounded-md font-medium bg-black" href="https://tiktok.com">Tiktok</a>
+      </div>
+    </div>
+  </div>
+  <nav id="nav" class="h-20 flex items-center bg-emerald-500 px-[7%]">
+    <div class="w-full flex justify-between items-center text-white">
+      <div class="image">
+        <img src="img/logo.png" alt="logo" width="64px">
+      </div>
+      <ul class="flex gap-10 font-medium">
+        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+        <li><a href="#menu" class="hover:text-blue-600">Menu</a></li>
+        <li><a href="#about" class="hover:text-blue-600">About</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section id="about">
+    <div class="bg-white">
+      <div class="px-[7%] text-black pb-12">
+        <div class="flex items-center gap-72">
+          <div>
+            <h1 class="text-center border-b-2 w-24 border-black m-auto pb-2 text-2xl font-semibold">Tentang</h1>
+            <p class="text-justify mt-4">"Catering Ramah" yang mengacu pada harga yang murah, sehat, dan halaladalah  layanan katering yang  menawarkan makanan berkualitas dengan harga terjangkau, memastikan bahwa semua hidangan disiapkan sesuai dengan standar kesehatan dan kepatuhan terhadap aturan halal.</p>
+          </div>
+          <div>
+            <img src="img/tentang.png" alt="tentang" width="880px">
+          </div>
+        </div>
+        <div class="flex items-center gap-72">
+          <div>
+            <img src="img/visi.png" alt="tentang" width="880px">
+          </div>
+          <div>
+            <h1 class="text-center border-b-2 w-10 border-black m-auto pb-2 text-2xl font-semibold">Visi</h1>
+            <p class="text-justify mt-4">Menjadi penyedia layanan katering terkemuka yang dikenal karena menawarkan makanan yang lezat, sehat, dan halal dengan harga yang terjangkau, serta memberikan pelayanan yang ramah dan profesional kepada semua pelanggan.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-72">
+          <div>
+            <h1 class="text-center border-b-2 w-12 border-black m-auto pb-2 text-2xl font-semibold">Misi</h1>
+            <ol type="1" class="mt-4">
+              <li>Menyediakan menu yang terjangkau dan berkualitas.</li>
+              <li>Menyajikan makanan yang sehat dan bergizi.</li>
+              <li>Mematuhi standar halal dalam semua proses memasak.</li>
+              <li>Memberikan pelayanan yang ramah dan profesional.</li>
+              <li>Menawarkan variasi menu yang beragam.</li>
+              <li>Menerapkan praktik ramah lingkungan.</li>
+            </ol>
+          </div>
+          <div class="ml-80">
+            <img src="img/misi.png" alt="tentang" width="280px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="home" class="py-10 bg-slate-50">
+    <div class="px-[7%]">
+      <div class="text-black font-bold text-3xl mb-4">
+        <h1>BEST SELLER</h1>
+      </div>
+      <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+        <swiper-slide>
+          <img src="img/ayam-bakar.jpg" class="h-full"/>
+        </swiper-slide>
+        <swiper-slide>
+          <img src="img/Ikan-bakar.jpg"/>
+        </swiper-slide>
+        <swiper-slide>
+          <img src="img/ikan-goreng.jpg" class="h-full"/>
+        </swiper-slide>
+        <swiper-slide>
+          <img src="img/nasi-ayamjpg.jpg" class="h-full"/>
+        </swiper-slide>
+        <swiper-slide>
+          <img src="img/nasiliwet.jpg" class="h-full" />
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+  <script>
+    
+  </script>
 </body>
 </html>
