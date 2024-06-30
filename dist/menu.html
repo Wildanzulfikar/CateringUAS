@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ramah - Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <link href="output.css" rel="stylesheet">
+</head>
+<body>
+    <!-- header -->
+    <nav id="nav" class="h-20 flex items-center bg-emerald-500 px-[7%]">
+        <div class="w-full flex justify-between items-center text-white">
+            <div class="image">
+                <img src="img/logo.png" alt="logo" width="64px">
+            </div>
+            <ul class="flex gap-10 font-medium">
+                <li><a href="index.html" class="hover:text-blue-600">Home</a></li>
+                <li><a href="menu.html" class="hover:text-blue-600">Menu</a></li>
+                <li><a href="#about" class="hover:text-blue-600">About</a></li>
+                <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="menu" class="px-[7%] text-black py-12">
+        <div class="bg-white">
+            <div>
+                <!-- paket ayam -->
+                <div class="paket-ayam pb-16">
+                    <h1 class="pb-2 text-2xl font-semibold">Paket Ayam</h1>
+                    <div class="flex justify-around gap-x-4">
+                        <!-- card product -->
+                        <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
+                            <!-- card image -->
+                            <div class="card-menu-image">
+                                <img src="img/ayam-bakar.jpg" alt="menu-ayam" class="object-cover w-[250px] h-[200px]">
+                            </div>
+                            <!-- card menu desc -->
+                            <div class="p-2">
+                                <!-- card title -->
+                                <h3 class="text-center text-3xl font-bold pb-10 pt-2">Paket A</h3>
+                                <button onclick="openModal('ayam','a')" class="bg-emerald-500 py-2 px-4 text-white font-medium rounded-lg w-full">Detail</button>
+                            </div>
+                        </div>
+                        <!-- card product -->
+                        <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
+                            <!-- card image -->
+                            <div class="card-menu-image">
+                                <img src="img/nasi-ayamjpg.jpg" alt="menu-ayam" class="object-cover w-[250px] h-[200px]">
+                            </div>
+                            <!-- card menu desc -->
+                            <div class="p-2">
+                                <!-- card title -->
+                                <h3 class="text-center text-3xl font-bold pb-10 pt-2">Paket B</h3>
+                                <button onclick="openModal('ayam','b')" class="bg-emerald-500 py-2 px-4 text-white font-medium rounded-lg w-full">Detail</button>
+                            </div>
+                        </div>
+                        <!-- card product -->
+                        <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
+                            <!-- card image -->
+                            <div class="card-menu-image">
+                                <img src="img/nasiliwet.jpg" alt="menu-ayam" class="object-cover w-[250px] h-[200px]">
+                            </div>
+                            <!-- card menu desc -->
+                            <div class="p-2">
+                                <!-- card title -->
+                                <h3 class="text-center text-3xl font-bold pb-10 pt-2">Paket C</h3>
+                                <button onclick="openModal('ayam','c')" class="bg-emerald-500 py-2 px-4 text-white font-medium rounded-lg w-full">Detail</button>
+                            </div>
+                        </div>
+                        <!-- card product -->
+                        <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
+                            <!-- card image -->
+                            <div class="card-menu-image">
+                                <img src="img/ayam-bakar.jpg" alt="menu-ayam" class="object-cover w-[250px] h-[200px]">
+                            </div>
+                            <!-- card menu desc -->
+                            <div class="p-2">
+                                <!-- card title -->
+                                <h3 class="text-center text-3xl font-bold pb-10 pt-2">Paket D</h3>
+                                <button onclick="openModal('ayam','d')" class="bg-emerald-500 py-2 px-4 text-white font-medium rounded-lg w-full">Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- paket ikan -->
+                <div class="paket-ikan">
+                    <h1 class="pb-2 text-2xl font-semibold">Paket Ikan</h1>
+                    <div class="flex justify-around gap-x-4">
+                        <!-- card product -->
+                        <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
+                            <!-- card image -->
+                            <div class="card-menu-image">
+                                <img src="img/Ikan-bakar.jpg" alt="menu-ikan" class="object-cover w-[250px] h-[200px]">
+                            </div>
+                            <!-- card menu desc -->
+                            <div class="p-2">
+                                <!-- card title -->
+                                <h3 class="text-center text-3xl font-bold pb-10 pt-2">Paket A</h3>
+                                <button onclick="openModal('ikan','a')" class="bg-emerald-500 py-2 px-4 text-white font-medium rounded-lg w-full">Detail</button>
+                            </div>
+                        </div>
+                        <!-- card product -->
+                        <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
+                            <!-- card image -->
+                            <div class="card-menu-image">
+                                <img src="img/ikan-goreng.jpg" alt="menu-ikan" class="object-cover w-[250px] h-[200px]">
+                            </div>
+                            <!-- card menu desc -->
+                            <div class="p-2">
+                                <!-- card title -->
+                                <h3 class="text-center text-3xl font-bold pb-10 pt-2">Paket B</h3>
+                                <button onclick="openModal('ikan','b')" class="bg-emerald-500 py-2 px-4 text-white font-medium rounded-lg w-full">Detail</button>
+                            </div>
+                        </div>
+                        <!-- card product -->
+                        <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
+                            <!-- card image -->
+                            <div class="card-menu-image">
+                                <img src="img/nasiliwet.jpg" alt="menu-ikan" class="object-cover w-[250px] h-[200px]">
+                            </div>
+                            <!-- card menu desc -->
+                            <div class="p-2">
+                                <!-- card title -->
+                                <h3 class="text-center text-3xl font-bold pb-10 pt-2">Paket C</h3>
+                                <button onclick="openModal('ikan','c')" class="bg-emerald-500 py-2 px-4 text-white font-medium rounded-lg w-full">Detail</button>
+                            </div>
+                        </div>
+                        <!-- card product -->
+                        <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
+                            <!-- card image -->
+                            <div class="card-menu-image">
+                                <img src="img/ayam-bakar.jpg" alt="menu-ikan" class="object-cover w-[250px] h-[200px]">
+                            </div>
+                            <!-- card menu desc -->
+                            <div class="p-2">
+                                <!-- card title -->
+                                <h3 class="text-center text-3xl font-bold pb-10 pt-2">Paket D</h3>
+                                <button onclick="openModal('ikan','d')" class="bg-emerald-500 py-2 px-4 text-white font-medium rounded-lg w-full">Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal -->
+                <div id="modal-wrapper" class="hidden fixed inset-0 z-10">
+                    <!-- container bg -->
+                    <div class="flex justify-center items-center min-h-screen bg-emerald-500 bg-opacity-50 transition-opacity">
+                        <!-- card modal -->
+                        <div class="bg-white rounded-lg p-5 relative w-2/3">
+                            <!-- container -->
+                            <div class="flex gap-x-3">
+                                <!-- image menu modal -->
+                                <div>
+                                    <img src="img/ayam-bakar.jpg" alt="image-modal" id="modal-image" class="object-cover w-[300px] h-[300px]">
+                                </div>
+                                <!-- container text -->
+                                <div class="flex flex-col justify-between">
+                                    <!-- text menu modal -->
+                                    <div>
+                                        <h4 id="modal-title" class="text-4xl font-bold">Paket A</h4>
+                                        <p id="modal-desc">Nasi, ayam bakar paha, lalapan, dan sambal</p>
+                                        <h5 id="modal-price" class="text-emerald-500 font-medium text-3xl pt-5">Rp 23.000,00</h5>
+                                    </div>
+                                    <button class="bg-emerald-500 text-white py-2 px-4 w-full">Beli Paket</button>
+                                </div>
+
+                                <!-- close btn -->
+                                <div class="bg-emerald-500 text-white flex justify-center items-center absolute top-1 right-1 w-[25px] h-[25px] rounded-[50%] text-bold cursor-pointer" id="close-modal">
+                                    <p>X</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- footer -->
+    <footer class="bg-[#D7BB22] text-[#FFFF] px-[7%] pt-12">
+        <!-- container -->
+        <div class="w-full flex justify-between">
+        <!-- section logo dan sosmed -->
+        <div class="logo-and-sosmed">
+            <!-- logo -->
+            <div class="logo-group flex gap-x-2 items-center pb-3">
+            <div class="image">
+                <img src="img/logo.png" alt="logo" width="64px">
+            </div>
+            <h1 class="text-4xl font-medium">Ramah</h1>
+            </div>
+            <!-- sosmed -->
+            <div class="sosmed group flex gap-x-2 justify-center w-full">
+            <img src="img/tiktok-logo.png" alt="tiktok-logo" width="30px">
+            <img src="img/Logo-de-instagram-original.png" alt="instagram" width="30px">
+            <img src="img/logo-whatsapp.png" alt="wa" width="30px">
+            </div>
+        </div>
+        <!-- section kontak -->
+        <div class="kontak flex gap-x-5">
+            <!-- kontak title -->
+            <div class="w-[200px]">
+            <h3 class="font-semibold text-2xl pb-2">Kontak</h3>
+            <div class="mt-2">
+                <p>+62 85722312432</p>
+                <p>ramah@gmail.com</p>
+                <p>Jl. Proklamasi No.6, Kec. Karawaci, Kota Tangerang</p>
+            </div>
+            </div>
+            <!-- kontak map -->
+            <div class="kontak-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.5710924164614!2d106.60984417316666!3d-6.188106160625111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fffc30964197%3A0x75d8989031f11943!2sJl.%20Proklamasi%20No.6%2C%20RT.002%2FRW.009%2C%20Cimone%2C%20Kec.%20Karawaci%2C%20Kota%20Tangerang%2C%20Banten%2015114!5e0!3m2!1sid!2sid!4v1719730807391!5m2!1sid!2sid" width="200" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        </div>
+        <!-- copyright -->
+        <div class="text-center pt-5 pb-2">
+        <p>Copyright2024@RamahCathering</p>
+        </div>
+    </footer>
+    <script>
+        // data menu
+        const paketMenu = {
+            'ayam': {
+                'a': {
+                    "judul": "Paket A",
+                    "desc": "Nasi, ayam bakar paha, mie goreng, acar, sambal, dan orek tempe",
+                    "harga": "Rp 23.000,00",
+                    "gambar": "img/ayam-bakar.jpg"
+                },
+                'b': {
+                    "judul": "Paket B",
+                    "desc": "Nasi, ayam goreng paha, kangkung, acar, selada, tahu, dan tempe",
+                    "harga": "Rp 25.000,00",
+                    "gambar": "img/nasi-ayamjpg.jpg"
+                },
+                'c': {
+                    "judul": "Paket C",
+                    "desc": "Nasi Liwet, ayam goreng paha, tempe, timun, selada, tahu, dan sambal",
+                    "harga": "Rp 30.000,00",
+                    "gambar": "img/nasiliwet.jpg"
+                },
+                'd': {
+                    "judul": "Paket D",
+                    "desc": "Nasi, ayam bakar paha, mie goreng, acar, sambal, orek tempe dan teh manis",
+                    "harga": "Rp 35.000,00",
+                    "gambar": "img/ayam-bakar.jpg"
+                }
+            },
+            'ikan': {
+                'a': {
+                    "judul": "Paket A",
+                    "desc": "Nasi, ikan bakar, sambal, dan salad",
+                    "harga": "Rp 26.500,00",
+                    "gambar": "img/ikan-bakar.jpg"
+                },
+                'b': {
+                    "judul": "Paket B",
+                    "desc": "Nasi, ikan goreng, sayuran, kol, timun, tahu, dan pisang",
+                    "harga": "Rp 28.000,00",
+                    "gambar": "img/ikan-goreng.jpg"
+                },
+                'c': {
+                    "judul": "Paket C",
+                    "desc": "Nasi Liwet, ayam goreng paha, tempe, timun, selada, tahu, dan sambal",
+                    "harga": "Rp 30.000,00",
+                    "gambar": "img/nasiliwet.jpg"
+                },
+                'd': {
+                    "judul": "Paket D",
+                    "desc": "Nasi, ayam bakar paha, mie goreng, acar, sambal, dan orek tempe",
+                    "harga": "Rp 35.000,00",
+                    "gambar": "img/nasi-ayamjpg.jpg"
+                }
+            }
+        };
+
+        function openModal(jenis,paket){
+            const data = paketMenu[jenis][paket];
+            document.getElementById('modal-title').textContent = data.judul;
+            document.getElementById('modal-desc').textContent = data.desc;
+            document.getElementById('modal-image').src = data.gambar;
+            document.getElementById('modal-price').textContent = data.harga;
+
+            document.getElementById("modal-wrapper").classList.remove("hidden");
+        }
+
+        document.getElementById("close-modal").addEventListener("click", function() {
+            document.getElementById("modal-wrapper").classList.add("hidden");
+        });
+    </script>
+</body>
+</html>
