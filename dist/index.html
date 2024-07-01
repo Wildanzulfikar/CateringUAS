@@ -1,5 +1,6 @@
 <!doctype html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
   <link href="output.css" rel="stylesheet">
 </head>
+
 <body>
   <div class="w-full h-screen bg-no-repeat bg-center bg-cover bg-[url(img/hero-image.png)] fixed -z-10">
   </div>
@@ -56,7 +58,9 @@
         <div class="flex items-center gap-72">
           <div>
             <h1 class="text-center border-b-2 w-24 border-black m-auto pb-2 text-2xl font-semibold">Tentang</h1>
-            <p class="text-justify mt-4">"Catering Ramah" yang mengacu pada harga yang murah, sehat, dan halaladalah  layanan katering yang  menawarkan makanan berkualitas dengan harga terjangkau, memastikan bahwa semua hidangan disiapkan sesuai dengan standar kesehatan dan kepatuhan terhadap aturan halal.</p>
+            <p class="text-justify mt-4">"Catering Ramah" yang mengacu pada harga yang murah, sehat, dan halaladalah
+              layanan katering yang menawarkan makanan berkualitas dengan harga terjangkau, memastikan bahwa semua
+              hidangan disiapkan sesuai dengan standar kesehatan dan kepatuhan terhadap aturan halal.</p>
           </div>
           <div>
             <img src="img/tentang.png" alt="tentang" width="880px">
@@ -68,7 +72,9 @@
           </div>
           <div>
             <h1 class="text-center border-b-2 w-10 border-black m-auto pb-2 text-2xl font-semibold">Visi</h1>
-            <p class="text-justify mt-4">Menjadi penyedia layanan katering terkemuka yang dikenal karena menawarkan makanan yang lezat, sehat, dan halal dengan harga yang terjangkau, serta memberikan pelayanan yang ramah dan profesional kepada semua pelanggan.</p>
+            <p class="text-justify mt-4">Menjadi penyedia layanan katering terkemuka yang dikenal karena menawarkan
+              makanan yang lezat, sehat, dan halal dengan harga yang terjangkau, serta memberikan pelayanan yang ramah
+              dan profesional kepada semua pelanggan.</p>
           </div>
         </div>
         <div class="flex items-center gap-72">
@@ -95,18 +101,20 @@
       <div class="text-black font-bold text-3xl mb-4">
         <h1>BEST SELLER</h1>
       </div>
-      <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true" slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100" coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
+      <swiper-container class="mySwiper" pagination="true" effect="coverflow" grab-cursor="true" centered-slides="true"
+        slides-per-view="auto" coverflow-effect-rotate="50" coverflow-effect-stretch="0" coverflow-effect-depth="100"
+        coverflow-effect-modifier="1" coverflow-effect-slide-shadows="true">
         <swiper-slide>
-          <img src="img/ayam-bakar.jpg" class="h-full"/>
+          <img src="img/ayam-bakar.jpg" class="h-full" />
         </swiper-slide>
         <swiper-slide>
-          <img src="img/Ikan-bakar.jpg"/>
+          <img src="img/Ikan-bakar.jpg" />
         </swiper-slide>
         <swiper-slide>
-          <img src="img/ikan-goreng.jpg" class="h-full"/>
+          <img src="img/ikan-goreng.jpg" class="h-full" />
         </swiper-slide>
         <swiper-slide>
-          <img src="img/nasi-ayamjpg.jpg" class="h-full"/>
+          <img src="img/nasi-ayamjpg.jpg" class="h-full" />
         </swiper-slide>
         <swiper-slide>
           <img src="img/nasiliwet.jpg" class="h-full" />
@@ -114,9 +122,39 @@
       </swiper-container>
     </div>
   </section>
+
+  <section class="bg-white">
+      <h1 class="text-4xl text-center text-red-700 bg-white">Contact</h1>
+    <div>
+      <form class="w-7/12 mx-auto">
+        <div class="mb-5">
+            <label for="nama" class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
+            <input type="nama" id="nama" class="bg-gray-50 border border-red-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+        </div>
+        <div class="mb-5">
+            <label for="Email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+            <input type="Email" id="email" class="bg-gray-50 border border-red-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+        </div>
+        <div class="mb-5">
+          <label for="telepon" class="block mb-2 text-sm font-medium text-gray-900">No Telepon</label>
+          <input type="nama" id="nama" class="bg-gray-50 border border-red-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" required />
+      </div>
+      <div class="mb-5">
+        <label for="keluhan" class="block mb-2 text-sm font-medium text-gray-900">Keluhan</label>
+        <input type="nama" id="nama" class="w-full max h-44 bg-gray-50 border border-red-600 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5" required />
+    </div>
+    <div class="flex justify-center">
+        <button type="submit" class="text-white bg-red-700 hover:bg-red-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-9/12  px-5 py-2.5 text-center mb-10">Submit</button>
+      </div>
+      </form>
+    
+    </div>
+  </section>
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
   <script>
-    
+
   </script>
 </body>
+
 </html>
