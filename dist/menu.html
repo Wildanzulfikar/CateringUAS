@@ -154,23 +154,193 @@
                             <div class="flex gap-x-3">
                                 <!-- image menu modal -->
                                 <div>
-                                    <img src="img/ayam-bakar.jpg" alt="image-modal" id="modal-image" class="object-cover w-[300px] h-[300px]">
+                                    <img src="img/ayam-bakar.jpg" alt="image-modal" id="modal-image" class="object-cover w-[400px] h-[300px]">
                                 </div>
                                 <!-- container text -->
-                                <div class="flex flex-col justify-between">
+                                <div class="flex flex-col justify-between w-full">
                                     <!-- text menu modal -->
                                     <div>
                                         <h4 id="modal-title" class="text-4xl font-bold">Paket A</h4>
                                         <p id="modal-desc">Nasi, ayam bakar paha, lalapan, dan sambal</p>
                                         <h5 id="modal-price" class="text-emerald-500 font-medium text-3xl pt-5">Rp 23.000,00</h5>
                                     </div>
-                                    <button class="bg-emerald-500 text-white py-2 px-4 w-full">Beli Paket</button>
+                                    <button id="open-modal-order" class="bg-emerald-500 text-white py-2 px-4 w-full">Beli Paket</button>
                                 </div>
 
                                 <!-- close btn -->
                                 <div class="bg-emerald-500 text-white flex justify-center items-center absolute top-1 right-1 w-[25px] h-[25px] rounded-[50%] text-bold cursor-pointer" id="close-modal">
                                     <p>X</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal order -->
+                <div id="modal-order" class="fixed inset-0 z-10 hidden">
+                    <!-- container bg -->
+                    <div class="flex justify-center items-center min-h-screen bg-emerald-500 bg-opacity-50 transition-opacity">
+                        <!-- card modal -->
+                        <div class="bg-white rounded-lg p-5 relative w-2/3">
+                            <!-- title order -->
+                            <h2 class="text-black font-bold text-3xl text-center pb-10">Pesanan</h2>
+                            <!-- form -->
+                            <form class="flex flex-col">
+                                <div class="flex gap-x-3 pb-5">
+                                    <!-- nama pesanan -->
+                                    <div class="w-full">
+                                        <label for="nama" class="font-medium text-gray-700">Nama</label>
+                                        <div class="border border-solid border-emerald-500 py-1 px-2 rounded-lg mt-1 ">
+                                            <input type="text" name="nama" id="nama" class="outline-none w-full">
+                                        </div>
+                                    </div>
+                                    <!-- nomor telpon / hp -->
+                                    <div class="w-full">
+                                        <label for="nomor-telepon" class="font-medium text-gray-700">Nomor Telepon / HP</label>
+                                        <div class="border border-solid border-emerald-500 py-1 px-2 rounded-lg mt-1">
+                                            <input type="text" name="nomor-telepon" id="nomor-telepon" class="outline-none w-full">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-x-3 pb-5">
+                                    <!-- pilih menu -->
+                                    <div class="w-full">
+                                        <label for="pilih-menu" class="font-medium text-gray-700">Pilih Menu</label>
+                                        <div class="border border-solid border-emerald-500 py-1 px-2 rounded-lg mt-1 ">
+                                            <select id="pilih-menu" class="py-1 px-2 block w-full outline-none">
+                                                <option value="Ayam" selected="">Ayam</option>
+                                                <option value="Ikan">Ikan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- pilih paket -->
+                                    <div class="w-full">
+                                        <label for="pilih-paket" class="font-medium text-gray-700">Pilih Paket</label>
+                                        <div class="border border-solid border-emerald-500 py-1 px-2 rounded-lg mt-1">
+                                            <select id="pilih-paket" class="py-1 px-2 block w-full outline-none">
+                                                <option value="A" selected="">A</option>
+                                                <option value="B">B</option>
+                                                <option value="C">C</option>
+                                                <option value="D">D</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex gap-x-3 pb-10">
+                                    <!-- alamat -->
+                                    <div class="w-full">
+                                        <label for="alamat" class="font-medium text-gray-700">Alamat</label>
+                                        <div class="border border-solid border-emerald-500 py-1 px-2 rounded-lg mt-1 ">
+                                            <input type="text" name="alamat" id="alamat" class="outline-none w-full">
+                                        </div>
+                                    </div>
+                                    <!-- jumlah kotak -->
+                                    <div class="w-full">
+                                        <label for="jumlah-kotak" class="font-medium text-gray-700">Jumlah Kotak (minimal 25)</label>
+                                        <div class="border border-solid border-emerald-500 py-1 px-2 rounded-lg mt-1">
+                                            <input type="text" name="jumlah-kotak" id="jumlah-kotak" class="outline-none w-full">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" id="order-submit" class="bg-emerald-500 text-white text-semibold py-2 px-4 rounded-lg">Submit</button>
+                            </form>
+
+                            <!-- close btn -->
+                            <div class="bg-emerald-500 text-white flex justify-center items-center absolute top-1 right-1 w-[25px] h-[25px] rounded-[50%] text-bold cursor-pointer" id="close-modal-order">
+                                <p>X</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal konfirmasi -->
+                <div id="modal-konfirmasi" class="fixed inset-0 z-10 hidden">
+                    <!-- container bg -->
+                    <div class="flex justify-center items-center min-h-screen bg-emerald-500 bg-opacity-50 transition-opacity">
+                        <!-- card modal -->
+                        <div class="bg-white rounded-lg p-5 relative w-2/3">
+                            <!-- title order -->
+                            <h2 class="text-black font-bold text-3xl text-center pb-10">Detail Pesanan</h2>
+                            <!-- isi detail -->
+                            <div class="container w-full">
+                                <!-- nama -->
+                                <div class="flex gap-x-3 pb-2">
+                                    <!-- nama label -->
+                                    <p class="w-1/2">Nama</p>
+                                    <!-- nama value -->
+                                    <p id="nama-detail">: Marcellinus Ario Xavier Saputra</p>
+                                </div>
+                                <!-- nomor telepon -->
+                                <div class="flex gap-x-3 pb-2">
+                                    <!-- nomor telp label -->
+                                    <p class="w-1/2">Nomor Telepon / Hp</p>
+                                    <!-- nomor telp value -->
+                                    <p id="telepon-detail">: 085262173221432</p>
+                                </div>
+                                <!-- alamat -->
+                                <div class="flex gap-x-3 pb-2">
+                                    <!-- alamat label -->
+                                    <p class="w-1/2">Alamat</p>
+                                    <!-- alamat value -->
+                                    <p id="alamat-detail">: Jalan. Melati No.56, Margonda City</p>
+                                </div>
+                                <!-- Pilih menu -->
+                                <div class="flex gap-x-3 pb-2">
+                                    <!-- pilih menu label -->
+                                    <p class="w-1/2">Pilih menu</p>
+                                    <!-- pilih menu value -->
+                                    <p id="menu-detail">: Ayam</p>
+                                </div>
+                                <!-- Pilih paket -->
+                                <div class="flex gap-x-3 pb-2">
+                                    <!-- pilih paket label -->
+                                    <p class="w-1/2">Pilih paket</p>
+                                    <!-- pilih paket value -->
+                                    <p id="paket-detail">: B</p>
+                                </div>
+                                <!-- harga per kotak -->
+                                <div class="flex gap-x-3 pb-2">
+                                    <!-- harga per kotak label -->
+                                    <p class="w-1/2">Harga per kotak</p>
+                                    <!-- harga per kotak value -->
+                                    <p id="harga-detail">: Rp. 25.000</p>
+                                </div>
+                                <!-- jumlah kotak -->
+                                <div class="flex gap-x-3 pb-2">
+                                    <!-- jumlah kotak label -->
+                                    <p class="w-1/2">Jumlah kotak</p>
+                                    <!-- jumlah kotak value -->
+                                    <p id="jumlah-detail">: 10</p>
+                                </div>
+                                <!-- total harga -->
+                                <div class="flex gap-x-3 pb-2">
+                                    <!-- total harga label -->
+                                    <p class="w-1/2">Total harga</p>
+                                    <!-- total harga value -->
+                                    <p id="total-harga-detail">: Rp 250.000,00</p>
+                                </div>
+                            </div>
+                            <div class="flex justify-evenly gap-x-3 pt-6">
+                                <button id="btn-konfirmasi" class="bg-emerald-500 text-white text-semibold py-2 px-4 rounded-lg w-full">Konfirmasi Pesananan</button>
+                                <button id="close-modal-konfirmasi" class="bg-red-500 text-white text-semibold py-2 px-4 rounded-lg w-full">Batalkan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- modal berhasil -->
+                <div id="modal-berhasil" class="fixed inset-0 z-10 hidden">
+                    <!-- container bg -->
+                    <div class="flex justify-center items-center min-h-screen bg-emerald-500 bg-opacity-50 transition-opacity">
+                        <!-- card modal -->
+                        <div class="bg-white rounded-lg p-5 relative w-2/3">
+                            <!-- title order -->
+                            <h2 class="text-black font-bold text-3xl text-center pb-10">Berhasil</h2>
+                            <!-- isi berhasil -->
+                            <p class="text-justify text-xl">Terima kasih sudah memesan makanan di Ramah cathering, jika ada kendala dari segi produk atau belum datang produk-nya segera kabarin ke nomor 085722312432. Terima kasih</p>
+                            <!-- close btn -->
+                            <div class="bg-emerald-500 text-white flex justify-center items-center absolute top-1 right-1 w-[25px] h-[25px] rounded-[50%] text-bold cursor-pointer" id="close-modal-berhasil">
+                                <p>X</p>
                             </div>
                         </div>
                     </div>
@@ -277,6 +447,7 @@
             }
         };
 
+        // open modal menu
         function openModal(jenis,paket){
             const data = paketMenu[jenis][paket];
             document.getElementById('modal-title').textContent = data.judul;
@@ -287,8 +458,112 @@
             document.getElementById("modal-wrapper").classList.remove("hidden");
         }
 
+        // open modal order
+        document.getElementById("open-modal-order").addEventListener("click", function() {
+            document.getElementById("modal-order").classList.remove("hidden");
+            document.getElementById("modal-wrapper").classList.add("hidden");
+        });
+
+        // convert nilai int menjadi rupiah
+        const rupiah = (number)=>{
+            return new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR"
+            }).format(number);
+        }
+
+        // order form
+        let hargaPerKotak;
+        let hargaPerKotakTampil;
+        const orderForm = document.getElementById("order-submit");
+        const modalKonfirmasi = document.getElementById("modal-konfirmasi");
+
+        orderForm.onclick = () => {
+
+             // form order
+            const namaPembeli = document.getElementById("nama").value;
+            const teleponPembeli = document.getElementById("nomor-telepon").value;
+            const menuPembeli = document.getElementById("pilih-menu").value;
+            const paketPembeli = document.getElementById("pilih-paket").value;
+            const alamatPembeli = document.getElementById("alamat").value;
+            const kotakPembeli = document.getElementById("jumlah-kotak").value;
+
+            // pengkodinsian
+            if(menuPembeli.toLowerCase() == "ayam" && paketPembeli == "A"){
+                hargaPerKotak = 23000;
+                hargaPerKotakTampil = rupiah(hargaPerKotak);
+            } else if(menuPembeli.toLowerCase() == "ayam" && paketPembeli == "B"){
+                hargaPerKotak = 25000;
+                hargaPerKotakTampil = rupiah(hargaPerKotak);
+            } else if(menuPembeli.toLowerCase() == "ayam" && paketPembeli == "C"){
+                hargaPerKotak = 30000;
+                hargaPerKotakTampil = rupiah(hargaPerKotak);
+            } else if(menuPembeli.toLowerCase() == "ayam" && paketPembeli == "D") {
+                hargaPerKotak = 35000;
+                hargaPerKotakTampil = rupiah(hargaPerKotak);
+            } else if (menuPembeli.toLowerCase() == "ikan" && paketPembeli == "A") {
+                hargaPerKotak = 26500;
+                hargaPerKotakTampil = rupiah(hargaPerKotak);
+            } else if (menuPembeli.toLowerCase() == "ikan" && paketPembeli == "B") {
+                hargaPerKotak = 28000;
+                hargaPerKotakTampil = rupiah(hargaPerKotak);
+            } else if (menuPembeli.toLowerCase() == "ikan" && paketPembeli == "C") {
+                hargaPerKotak = 30000;
+                hargaPerKotakTampil = rupiah(hargaPerKotak);
+            } else if (menuPembeli.toLowerCase() == "ikan" && paketPembeli == "D") {
+                hargaPerKotak = 35000;
+                hargaPerKotakTampil = rupiah(hargaPerKotak);
+            }
+
+            // total harga
+            const totalHarga = hargaPerKotak * kotakPembeli;
+
+            // validasi jumlah kotak
+            if(kotakPembeli < 25){
+                alert("minimal beli 25 kotak ya");
+                return;
+            }
+
+            // display modal konfirmasi
+            document.getElementById('nama-detail').textContent = `: ${namaPembeli}`;
+            document.getElementById('telepon-detail').textContent = `: ${teleponPembeli}`;
+            document.getElementById('alamat-detail').textContent = `: ${alamatPembeli}`;
+            document.getElementById('menu-detail').textContent = `: ${menuPembeli}`;
+            document.getElementById('paket-detail').textContent = `: ${paketPembeli}`;
+            document.getElementById('harga-detail').textContent = `: ${hargaPerKotakTampil}`;
+            document.getElementById('jumlah-detail').textContent = `: ${kotakPembeli}`;
+            document.getElementById('total-harga-detail').textContent = `: ${rupiah(totalHarga)}`;
+
+            modalKonfirmasi.classList.remove("hidden");
+        } 
+
+        // open modal berhasil
+        document.getElementById("btn-konfirmasi").addEventListener("click", function() {
+            document.getElementById("modal-berhasil").classList.remove("hidden");
+            document.getElementById("modal-konfirmasi").classList.add("hidden");
+            document.getElementById("modal-order").classList.add("hidden");
+            document.querySelector('form').reset();
+        });
+
+        // close modal order
+        document.getElementById("close-modal-order").addEventListener("click", function() {
+            document.getElementById("modal-order").classList.add("hidden");
+        });
+
+        // close modal konfirmasi
+        document.getElementById("close-modal-konfirmasi").addEventListener("click", function() {
+            document.getElementById("modal-konfirmasi").classList.add("hidden");
+            document.getElementById("modal-order").classList.remove("hidden");
+        });
+
+        // close modal
         document.getElementById("close-modal").addEventListener("click", function() {
             document.getElementById("modal-wrapper").classList.add("hidden");
+        });
+
+        // close modal berhasil
+        document.getElementById("close-modal-berhasil").addEventListener("click", function() {
+            document.getElementById("modal-berhasil").classList.add("hidden");
         });
     </script>
 </body>
