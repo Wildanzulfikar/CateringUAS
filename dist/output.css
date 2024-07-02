@@ -646,8 +646,11 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .mt-1 {
   margin-top: 0.25rem;
 }
@@ -658,10 +661,13 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .mt-4 {
   margin-top: 1rem;
 }
@@ -679,6 +685,7 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -694,6 +701,10 @@ video {
   margin-top: 0.5rem;
 >>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+.block {
+  display: block;
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 }
 
 .flex {
@@ -721,9 +732,12 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .h-full {
   height: 100%;
 }
@@ -732,6 +746,7 @@ video {
   height: 100vh;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .h-44 {
   height: 11rem;
@@ -745,17 +760,16 @@ video {
 =======
 >>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .min-h-screen {
   min-height: 100vh;
 }
 
-<<<<<<< HEAD
 .w-1\/2 {
   width: 50%;
 }
 
-=======
->>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 .w-10 {
   width: 2.5rem;
 }
@@ -765,18 +779,20 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .w-2\/3 {
   width: 66.666667%;
 }
 
-=======
->>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 .w-24 {
   width: 6rem;
 }
 
+<<<<<<< HEAD
 .w-full {
   width: 100%;
 }
@@ -790,6 +806,8 @@ video {
   width: 6rem;
 }
 
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .w-\[200px\] {
   width: 200px;
 }
@@ -807,13 +825,17 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .w-full {
   width: 100%;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .w-72 {
   width: 18rem;
@@ -864,6 +886,8 @@ video {
 =======
 >>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .cursor-pointer {
   cursor: pointer;
 }
@@ -888,13 +912,10 @@ video {
   justify-content: space-around;
 }
 
-<<<<<<< HEAD
 .justify-evenly {
   justify-content: space-evenly;
 }
 
-=======
->>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 .gap-1 {
   gap: 0.25rem;
 }
@@ -944,9 +965,12 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -956,10 +980,13 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .border-b-2 {
   border-bottom-width: 2px;
 }
@@ -973,6 +1000,7 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 .border-gray-300 {
   --tw-border-opacity: 1;
@@ -994,6 +1022,8 @@ video {
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .border-emerald-500 {
   --tw-border-opacity: 1;
   border-color: rgb(16 185 129 / var(--tw-border-opacity));
@@ -1006,10 +1036,13 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -1056,6 +1089,7 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .bg-red-700 {
 =======
 <<<<<<< HEAD
@@ -1067,6 +1101,8 @@ video {
 }
 
 >>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1150,21 +1186,23 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .pb-10 {
   padding-bottom: 2.5rem;
 }
 
-=======
->>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 .pb-12 {
   padding-bottom: 3rem;
 }
 
+<<<<<<< HEAD
 .pb-2 {
   padding-bottom: 0.5rem;
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
@@ -1178,6 +1216,8 @@ video {
   padding-bottom: 3rem;
 }
 
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -1243,6 +1283,7 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1257,6 +1298,11 @@ video {
   line-height: 2.5rem;
 >>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 }
 
 .font-bold {
@@ -1286,9 +1332,12 @@ video {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .text-emerald-500 {
   --tw-text-opacity: 1;
   color: rgb(16 185 129 / var(--tw-text-opacity));
@@ -1311,14 +1360,18 @@ video {
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> a0f6104985a6880d8357fa704e175c527611e41b
 >>>>>>> 6cecf111c52d56c1cf24fcd0c481a34a206f9e5b
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+<<<<<<< HEAD
 .text-red-600 {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
@@ -1329,6 +1382,8 @@ video {
   color: rgb(185 28 28 / var(--tw-text-opacity));
 }
 
+=======
+>>>>>>> be7dd51000667cd8d35fd1b164f097c8f94ba16d
 .shadow {
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
