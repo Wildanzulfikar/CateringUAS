@@ -1,0 +1,66 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../output.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Document</title>
+ </head>
+ <body>
+    <div class="w-full h-screen pt-36">
+        <div class="flex flex-col m-auto w-80 rounded-md bg-amber-600 p-6">
+            <div class="flex justify-center">
+                <img src="../img/logo.png" alt="logo" width="120px">
+            </div>
+            <form id="login" method="post" class="flex flex-col text-white">
+                <div class="mt-6">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="w-full py-1 px-2 rounded-md bg-black">
+                </div>
+                <div class="mt-4">   
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="w-full py-1 px-2 rounded-md bg-black">
+                </div>
+                <button type="submit" class="bg-blue-600 mt-4 py-1 rounded-md text-white font-medium">Login</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('login').addEventListener('submit', function(event) {
+
+            event.preventDefault();
+
+            const user = {
+                username: 'user',
+                password: '123'
+            }
+
+            const {username, password} = user;
+
+            const valueUser = document.getElementById('username').value;
+            const valuePass = document.getElementById('password').value;
+
+            if ((username === valueUser) && (password === valuePass)) {
+                    Swal.fire({
+                    title: 'Berhasil!',
+                    text: `Selamat datang`,
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = '../index.html';
+                    }
+                });
+            }else {
+                Swal.fire({
+                    title: 'Gagal!',
+                    text: 'Terjadi kesalahan, silakan coba lagi.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        });
+    </script>
+ </body>
+ </html>
