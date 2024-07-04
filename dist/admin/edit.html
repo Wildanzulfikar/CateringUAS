@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../output.css" rel="stylesheet">
+    <link href="https://unpkg.com/feather-icons" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex">
+        <div id="container" class="h-screen w-1/5 text-white bg-teal-600 overflow-hidden">
+            <div class="menu flex justify-end mx-2 mt-4">
+                <i data-feather="menu" id="menu" class="cursor-pointer"></i>
+            </div>
+            <div id="items" class=" min-h-full flex flex-col items-center">
+                <div class="flex items-center mt-4">
+                    <img src="../img/logo.png" alt="logo">
+                </div>
+                <ul class="flex flex-col gap-6 mt-24">
+                    <li class="flex gap-1"><i data-feather="database"></i><a href="menu.html" class="hover:text-blue-600">Menu</a></li>
+                    <li class="flex gap-1"><i data-feather="plus-square"></i><a href="tambah.html">Tambah Menu</a></li>
+                    <li class="flex gap-1"><i data-feather="dollar-sign"></i><a href="transaksi.html">Transaksi</a></li>
+                </ul>
+                <div class="mb-14 mt-72">
+                    <a href="login.html" class="flex gap-1"><i data-feather="log-out"></i>Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="w-full h-screen flex flex-col items-center justify-center bg-slate-100">
+            <section id="tambah-menu" class=" overflow-hidden">
+                <div class="w-full">
+                    <div class="">
+                        <h1>Tambah Menu</h1>
+                    </div>
+                    <div>
+                        <form id="tambahMenu" class="bg-green-400 p-6">
+                            <div class="grid grid-cols-2 gap-8">
+                                <div class="username flex flex-col">
+                                    <label for="namaPaket">Nama Paket</label>
+                                    <input type="text" id="namaPaket" name="namaPaket" class="rounded-sm">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label for="deskripsi">Deskripsi</label>
+                                    <input type="text" id="deskripsi" name="deskripsi" class="rounded-sm">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label for="deskripsi">Jenis Menu</label>
+                                    <input type="text" id="deskripsi" name="deskripsi" class="rounded-sm">
+                                </div>
+                                <div class="flex flex-col">
+                                    <label for="deskripsi">Harga</label>
+                                    <input type="text" id="deskripsi" name="deskripsi" class="rounded-sm">
+                                </div>
+                            </div>
+                            <div class="flex justify-center mt-4">
+                                <input type="file" id="file" name="file">
+                            </div>
+                            <button type="submit" class="w-full bg-blue-600 rounded-md mt-6 py-2 text-white font-semibold">Kirim</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        feather.replace()
+
+        const menu = document.getElementById('menu');
+        
+        menu.addEventListener('click', function(event) {
+            event.preventDefault();
+            const items = document.getElementById('items')
+            const container = document.getElementById('container');
+
+            items.classList.toggle('hidden');
+            container.classList.toggle('w-8');
+        })
+
+    
+    </script>
+</body>
+</html>
