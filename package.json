@@ -28,6 +28,7 @@
     "emoji-regex": "^9.2.2",
     "fast-glob": "^3.3.2",
     "fastq": "^1.17.1",
+    "feather-icons": "^4.29.2",
     "fill-range": "^7.1.1",
     "foreground-child": "^3.2.1",
     "function-bind": "^1.1.2",
@@ -97,7 +98,7 @@
     "yaml": "^2.4.5"
   },
   "scripts": {
-    "dev" : "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "keywords": [],
   "author": "",
