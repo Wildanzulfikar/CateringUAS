@@ -867,32 +867,15 @@
       document.getElementById("telepon-detail").textContent = `: ${teleponPembeli}`;
       document.getElementById("alamat-detail").textContent = `: ${alamatPembeli}`;
       document.getElementById("menu-detail").textContent = `: ${menuPembeli}`;
-<<<<<<< HEAD
       document.getElementById("paket-detail").textContent = `: ${paketPembeli}`;
       document.getElementById("harga-detail").textContent = `: ${hargaPerKotakTampil}`;
       document.getElementById("jumlah-detail").textContent = `: ${jumlahKotakPembeli}`;
       document.getElementById("total-harga-detail").textContent = `: ${rupiah(totalHarga)}`;
-=======
-      document.getElementById(
-        "paket-detail"
-      ).textContent = `: ${paketPembeli}`;
-      document.getElementById(
-        "harga-detail"
-      ).textContent = `: ${hargaPerKotakTampil}`;
-      document.getElementById(
-        "jumlah-detail"
-      ).textContent = `: ${jumlahKotakPembeli}`;
-      document.getElementById("total-harga-detail").textContent = `: ${rupiah(
-        totalHarga
-      )}`;
->>>>>>> 16d3168a1472e6d743dc0982f9f70fb367b25888
 
       modalKonfirmasi.classList.remove("hidden");
 
        // open modal berhasil
-      document
-      .getElementById("btn-konfirmasi")
-      .addEventListener("click", function () {
+      document.getElementById("btn-konfirmasi").addEventListener("click", function () {
         // masukkin di localstorage
         const menu = {
           nama: namaPembeli,
