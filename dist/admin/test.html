@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Store Image</title>
+</head>
+<body>
+    <input type="file" id="imageInput">
+    <img id="displayImage" alt="Stored Image">
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const base64String = e.target.result;
+                localStorage.setItem('image', base64String);
+                alert('Gambar berhasil disimpan di localStorage!');
+            };
+            
+            reader.readAsDataURL(file);
+        });
+
+        const storedImage = localStorage.getItem('image');
+        
+        if (storedImage) {
+            document.getElementById('displayImage').src = storedImage;
+        } else {
+            alert('Tidak ada gambar yang disimpan di localStorage.');
+        }
+    </script>
+</body>
+</html>

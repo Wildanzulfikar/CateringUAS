@@ -7,73 +7,101 @@
     <link href="https://unpkg.com/feather-icons" rel="stylesheet"> 
     <title>Menu</title>
 </head>
-<body>
-    <div class="flex">
-        <div id="container" class="h-screen w-1/5 text-white bg-blue-950 overflow-hidden">
+<body class="bg-slate-100">
+    <div class="flex w-full">
+        <header id="container" class="h-screen w-1/5 text-white bg-blue-950 fixed">
             <div class="menu flex justify-start mx-2 mt-4 ">
-                <i data-feather="menu" id="menu" class="cursor-pointer 2 "></i>
+                <i data-feather="menu" id="menu" class="cursor-pointer 2"></i>
             </div>
             <div id="items" class=" min-h-full flex flex-col items-center">
                 <div class="flex items-center mt-4">
                     <img src="../img/logo.png" alt="logo">
                 </div>
-                <ul class="flex flex-col gap-6 mt-24">
+                <ul class="flex flex-col gap-6 mt-16">
                     <li class="flex gap-1"><i data-feather="database"></i><a href="menu.html" class="hover:text-blue-600">Menu</a></li>
                     <li class="flex gap-1"><i data-feather="plus-square"></i><a href="tambah.html" class="hover:text-blue-600">Tambah Menu</a></li>
                     <li class="flex gap-1"><i data-feather="edit"></i><a href="edit.html" class="hover:text-blue-600">Edit Menu</a></li>
                     <li class="flex gap-1"><i data-feather="dollar-sign"></i><a href="transaksi.html" class="hover:text-blue-600">Transaksi</a></li>
                 </ul>
-                <div class="mb-14 mt-72">
-                    <a href="login.html" class="flex gap-1"><i data-feather="log-out"></i>Logout</a>
+                <div class="mt-32 -ml-5">
+                    <a href="login.html" id="logout" class="flex items-center gap-1 text-2xl"><i data-feather="log-out"></i>Logout</a>
                 </div>
             </div>
-        </div>
-        <div class="w-full h-screen flex flex-col items-center justify-center bg-slate-100">
+        </header>
+        <div class="w-full h-screen flex flex-col px-10 ml-60 mt-7 py-5">
             <section id="menu">
                 <div class="">
                     <div class="mb-10 text-4xl font-bold">
                         <h1>Menu</h1>
                     </div>
-                    <table>
+                    <table id="table-menu">
                         <tr class="bg-blue-950 text-white">
-                            <th>Nama Menu</th>
-                            <th>Jenis Menu</th>
-                            <th>Gambar</th>
-                            <th class="text-center">Deskripsi</th>
-                            <th>Harga</th>
-                            <th>Action</th>
+                            <th class="text-center">Nama Menu</th>
+                            <th class="text-center">Jenis Menu</th>
+                            <th class="text-center w-[15%]">Gambar</th>
+                            <th class="text-center w-[20%]">Deskripsi</th>
+                            <th class="text-center">Harga</th>
+                            <th class="text-center">Action</th>
                         </tr>
                         <tr>
-                            <td>Paket A</td>
-                            <td>Ayam</td>
-                            <td>jpg</td>
-                            <td>Nasi, ayam bakar paha, lalapan, dan sambal</td>
-                            <td>23.0000</td>
-                            <td>Delete | Edit</td>
+                            <td class="text-center">Paket A</td>
+                            <td class="text-center">Ayam</td>
+                            <td>
+                                <img src="../img/ayam-bakar.jpg" alt="gambar-menu" class="w-full">
+                            </td>
+                            <td>Nasi, ayam bakar paha, mie goreng, acar, sambal, dan orek tempe</td>
+                            <td class="text-center">Rp 23.000,00</td>
+                            <td>
+                                <div class="flex gap-x-2 justify-center">
+                                    <i data-feather="edit" onclick="goToEdit()" class="text-blue-950 cursor-pointer"></i>
+                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Paket A</td>
-                            <td>Ayam</td>
-                            <td>jpg</td>
-                            <td>Nasi, ayam bakar paha, lalapan, dan sambal</td>
-                            <td>23.0000</td>
-                            <td>Delete | Edit</td>
+                            <td class="text-center">Paket B</td>
+                            <td class="text-center">Ayam</td>
+                            <td>
+                                <img src="../img/nasi-ayamjpg.jpg" alt="gambar-menu" class="w-full">
+                            </td>
+                            <td>Nasi, ayam goreng paha, kangkung, acar, selada, tahu, dan tempe</td>
+                            <td class="text-center">Rp 25.000,00</td>
+                            <td>
+                                <div class="flex gap-x-2 justify-center">
+                                    <i data-feather="edit" onclick="goToEdit()" class="text-blue-950 cursor-pointer"></i>
+                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Paket A</td>
-                            <td>Ayam</td>
-                            <td>jpg</td>
-                            <td>Nasi, ayam bakar paha, lalapan, dan sambal</td>
-                            <td>23.0000</td>
-                            <td>Delete | Edit</td>
+                            <td class="text-center">Paket C</td>
+                            <td class="text-center">Ayam</td>
+                            <td>
+                                <img src="../img/nasiliwet.jpg" alt="gambar-menu" class="w-full">
+                            </td>
+                            <td>Nasi Liwet, ayam goreng paha, tempe, timun, selada, tahu, dan sambal</td>
+                            <td class="text-center">Rp 30.000,00</td>
+                            <td>
+                                <div class="flex gap-x-2 justify-center">
+                                    <i data-feather="edit" onclick="goToEdit()" class="text-blue-950 cursor-pointer"></i>
+                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
+                                </div>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Paket A</td>
-                            <td>Ayam</td>
-                            <td>jpg</td>
-                            <td>Nasi, ayam bakar paha, lalapan, dan sambal</td>
-                            <td>23.0000</td>
-                            <td>Delete | Edit</td>
+                            <td class="text-center">Paket D</td>
+                            <td class="text-center">Ayam</td>
+                            <td>
+                                <img src="../img/ayam-d.jpg" alt="gambar-menu" class="w-full">
+                            </td>
+                            <td>Nasi, ayam bakar paha, mie goreng, acar, sambal, orek tempe dan teh manis</td>
+                            <td class="text-center">Rp 35.000,00</td>
+                            <td>
+                                <div class="flex gap-x-2 justify-center">
+                                    <i data-feather="edit" onclick="goToEdit()" class="text-blue-950 cursor-pointer"></i>
+                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
+                                </div>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -94,7 +122,84 @@
             container.classList.toggle('w-12');
         })
 
-    
+        function goToEdit(){
+            window.location.href = "edit.html";
+        }
+
+        // cek status login
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('login');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Fungsi logout
+        const logout = document.getElementById('logout');
+        logout.addEventListener('click', function() {
+            localStorage.removeItem('login');
+        });
+
+        // Fungsi hapus data
+        function hapusData(element) {
+            let row = element.closest('tr');
+            row.remove();
+
+            // Tambahan logika untuk menghapus dari localStorage
+            let dataAkanDihapus = JSON.parse(localStorage.getItem("menuList")) || [];
+            let namaMenu = row.cells[0].textContent.trim(); 
+
+            // Cari indeks data yang akan dihapus
+            let index = dataMenu.findIndex(item => item.nama === namaMenu);
+            if (index !== -1) {
+                dataMenu.splice(index, 1); 
+                localStorage.setItem("menuList", JSON.stringify(dataAkanDihapus)); 
+            }
+        }
+
+        // menampilkan data menu
+        let dataMenu = JSON.parse(localStorage.getItem("menuList"));
+        let tabel = document.getElementById('table-menu');
+        let baris = document.createElement('tr');
+        console.log(dataMenu);
+
+        dataMenu.map(data => {
+            let baris = document.createElement('tr');
+                
+            let namaCell = document.createElement('td');
+            namaCell.classList.add('text-center');
+            namaCell.textContent = data.nama;
+            baris.appendChild(namaCell);
+            
+            let jenisCell = document.createElement('td');
+            jenisCell.classList.add('text-center');
+            jenisCell.textContent = data.jenis;
+            baris.appendChild(jenisCell);
+            
+            let gambarCell = document.createElement('td');
+            gambarCell.innerHTML = `<img src="${data.gambar}" alt="gambar-menu" class="w-full">`;
+            baris.appendChild(gambarCell);
+            
+            let deskripsiCell = document.createElement('td');
+            deskripsiCell.textContent = data.deskripsi;
+            baris.appendChild(deskripsiCell);
+            
+            let hargaCell = document.createElement('td');
+            hargaCell.classList.add('text-center');
+            hargaCell.textContent = data.harga;
+            baris.appendChild(hargaCell);
+            
+            let actionCell = document.createElement('td');
+            actionCell.innerHTML = `<div class="flex gap-x-2 justify-center">
+                                        <i data-feather="edit" onclick="goToEdit()"class="text-blue-950 cursor-pointer"></i>
+                                        <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
+                                    </div>`;
+            baris.appendChild(actionCell);
+            
+            tabel.appendChild(baris);
+        })
+
+        feather.replace()
     </script>
 </body>
 </html>

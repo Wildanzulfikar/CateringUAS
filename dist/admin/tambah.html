@@ -11,7 +11,7 @@
 
 <body>
     <div class="flex">
-        <div id="container" class="h-screen w-1/5 text-white bg-blue-950 overflow-hidden">
+        <div id="container" class="h-screen w-1/5 text-white bg-blue-950 fixed">
             <div class="menu flex justify-start mx-2 mt-4">
                 <i data-feather="menu" id="menu" class="cursor-pointer"></i>
             </div>
@@ -19,18 +19,14 @@
                 <div class="flex items-center mt-4">
                     <img src="../img/logo.png" alt="logo">
                 </div>
-                <ul class="flex flex-col gap-6 mt-24">
-                    <li class="flex gap-1"><i data-feather="database"></i><a href="menu.html"
-                            class="hover:text-blue-600">Menu</a></li>
-                    <li class="flex gap-1"><i data-feather="plus-square"></i><a href="tambah.html"
-                            class="hover:text-blue-600">Tambah Menu</a></li>
-                    <li class="flex gap-1"><i data-feather="edit"></i><a href="edit.html"
-                            class="hover:text-blue-600">Edit Menu</a></li>
-                    <li class="flex gap-1"><i data-feather="dollar-sign"></i><a href="transaksi.html"
-                            class="hover:text-blue-600">Transaksi</a></li>
+                <ul class="flex flex-col gap-6 mt-16">
+                    <li class="flex gap-1"><i data-feather="database"></i><a href="menu.html" class="hover:text-blue-600">Menu</a></li>
+                    <li class="flex gap-1"><i data-feather="plus-square"></i><a href="tambah.html" class="hover:text-blue-600">Tambah Menu</a></li>
+                    <li class="flex gap-1"><i data-feather="edit"></i><a href="edit.html" class="hover:text-blue-600">Edit Menu</a></li>
+                    <li class="flex gap-1"><i data-feather="dollar-sign"></i><a href="transaksi.html" class="hover:text-blue-600">Transaksi</a></li>
                 </ul>
-                <div class="mb-14 mt-72">
-                    <a href="login.html" class="flex gap-1"><i data-feather="log-out"></i>Logout</a>
+                <div class="mt-32 -ml-5">
+                    <a href="login.html" id="logout" class="flex gap-1 items-center text-2xl"><i data-feather="log-out"></i>Logout</a>
                 </div>
             </div>
         </div>
@@ -41,7 +37,7 @@
                         <h1>Tambah Menu</h1>
                     </div>
                     <div>
-                        <form id="editMenu" class="bg-blue-950 p-6 text-white rounded-md">
+                        <form id="tambah-menu" class="bg-blue-950 p-6 text-white rounded-md">
                             <div class="grid grid-cols-2 gap-8">
                                 <div class="username flex flex-col">
                                     <label for="namaPaket">Nama Paket</label>
@@ -63,8 +59,8 @@
                                     </select>
                                 </div>
                                 <div class="flex flex-col">
-                                    <label for="deskripsi">Harga</label>
-                                    <input type="text" id="deskripsi" name="deskripsi"
+                                    <label for="harga">Harga</label>
+                                    <input type="text" id="harga" name="harga"
                                         class="rounded-sm text-black p-1">
                                 </div>
                             </div>
@@ -94,6 +90,62 @@
             items.classList.toggle('hidden');
             container.classList.toggle('w-12');
         })
+
+        // cek status login
+        document.addEventListener('DOMContentLoaded', function() {
+            const isLoggedIn = localStorage.getItem('login');
+            if (!isLoggedIn) {
+                window.location.href = 'login.html';
+            }
+        });
+
+        // fungsi menambahkan menu baru
+        document.getElementById('tambah-menu').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const namaPaket = document.getElementById('namaPaket').value;
+            const deskripsi = document.getElementById('deskripsi').value;
+            const jenisMenu = document.getElementById('jenisMenu').value;
+            const harga = document.getElementById('harga').value;
+            const file = document.getElementById('file').files[0];
+            console.log(namaPaket);
+            console.log(deskripsi);
+            console.log(jenisMenu);
+            console.log(harga);
+            console.log(file);
+
+            // convert image
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function() {
+                const base64String = reader.result;
+                console.log(base64String);
+
+                const menu = {
+                nama: namaPaket,
+                deskripsi: deskripsi,
+                jenis: jenisMenu,
+                harga: harga,
+                gambar: base64String
+                };
+
+                console.log(menu);
+
+                const menuList = JSON.parse(localStorage.getItem('menuList')) || [];
+                menuList.push(menu);
+                localStorage.setItem('menuList', JSON.stringify(menuList));
+
+                window.location.href = 'menu.html';
+            };
+
+            
+        });
+
+        // Fungsi logout
+        const logout = document.getElementById('logout');
+        logout.addEventListener('click', function() {
+            localStorage.removeItem('login');
+        });
     </script>
 </body>
 

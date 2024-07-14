@@ -277,11 +277,7 @@
             <div class="shadow-md rounded-lg overflow-hidden flex flex-col justify-between">
               <!-- card image -->
               <div class="card-menu-image">
-<<<<<<< HEAD
                 <img src="img/ayam-d.jpg" alt="menu-ayam" class="object-cover w-[250px] h-[200px]" />
-=======
-                <img src="img/ayam-bakar.jpg" alt="menu-ayam" class="object-cover w-[250px] h-[200px]" />
->>>>>>> 61c56c7841f0d0bd7344f5700f46687cb72dfaf0
               </div>
               <!-- card menu desc -->
               <div class="p-2">
@@ -341,11 +337,7 @@
             <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
               <!-- card image -->
               <div class="card-menu-image">
-<<<<<<< HEAD
                 <img src="img/ikan-c.jpg" alt="menu-ikan" class="object-cover w-[250px] h-[200px]" />
-=======
-                <img src="img/nasiliwet.jpg" alt="menu-ikan" class="object-cover w-[250px] h-[200px]" />
->>>>>>> 61c56c7841f0d0bd7344f5700f46687cb72dfaf0
               </div>
               <!-- card menu desc -->
               <div class="p-2">
@@ -363,11 +355,7 @@
             <div class="shadow rounded-lg overflow-hidden flex flex-col justify-between">
               <!-- card image -->
               <div class="card-menu-image">
-<<<<<<< HEAD
                 <img src="img/ikan-d.jpg" alt="menu-ikan" class="object-cover w-[250px] h-[200px]" />
-=======
-                <img src="img/ayam-bakar.jpg" alt="menu-ikan" class="object-cover w-[250px] h-[200px]" />
->>>>>>> 61c56c7841f0d0bd7344f5700f46687cb72dfaf0
               </div>
               <!-- card menu desc -->
               <div class="p-2">
@@ -765,11 +753,7 @@
           judul: "Paket D",
           desc: "Nasi, ayam bakar paha, mie goreng, acar, sambal, orek tempe dan teh manis",
           harga: "Rp 35.000,00",
-<<<<<<< HEAD
           gambar: "img/ayam-d.jpg",
-=======
-          gambar: "img/ayam-bakar.jpg",
->>>>>>> 61c56c7841f0d0bd7344f5700f46687cb72dfaf0
         },
       },
       ikan: {
@@ -787,7 +771,6 @@
         },
         c: {
           judul: "Paket C",
-<<<<<<< HEAD
           desc: "Nasi, pecel lele, sambal, timun, telor balado dan orek tempel",
           harga: "Rp 30.000,00",
           gambar: "img/ikan-c.jpg",
@@ -797,17 +780,6 @@
           desc: "Nasi, ikan salmon, sambal, dan salad",
           harga: "Rp 35.000,00",
           gambar: "img/ikan-d.jpg",
-=======
-          desc: "Nasi Liwet, ayam goreng paha, tempe, timun, selada, tahu, dan sambal",
-          harga: "Rp 30.000,00",
-          gambar: "img/nasiliwet.jpg",
-        },
-        d: {
-          judul: "Paket D",
-          desc: "Nasi, ayam bakar paha, mie goreng, acar, sambal, dan orek tempe",
-          harga: "Rp 35.000,00",
-          gambar: "img/nasi-ayamjpg.jpg",
->>>>>>> 61c56c7841f0d0bd7344f5700f46687cb72dfaf0
         },
       },
     };
@@ -852,11 +824,7 @@
       const menuPembeli = document.getElementById("pilih-menu").value;
       const paketPembeli = document.getElementById("pilih-paket").value;
       const alamatPembeli = document.getElementById("alamat").value;
-<<<<<<< HEAD
       const jumlahKotakPembeli = document.getElementById("jumlah-kotak").value;
-=======
-      const kotakPembeli = document.getElementById("jumlah-kotak").value;
->>>>>>> 61c56c7841f0d0bd7344f5700f46687cb72dfaf0
 
       // pengkodinsian
       if (menuPembeli.toLowerCase() == "ayam" && paketPembeli == "A") {
@@ -886,59 +854,52 @@
       }
 
       // total harga
-<<<<<<< HEAD
       const totalHarga = hargaPerKotak * jumlahKotakPembeli;
 
       // validasi jumlah kotak
       if (jumlahKotakPembeli < 25) {
-=======
-      const totalHarga = hargaPerKotak * kotakPembeli;
-
-      // validasi jumlah kotak
-      if (kotakPembeli < 25) {
->>>>>>> 61c56c7841f0d0bd7344f5700f46687cb72dfaf0
         alert("minimal beli 25 kotak ya");
         return;
       }
 
       // display modal konfirmasi
       document.getElementById("nama-detail").textContent = `: ${namaPembeli}`;
-      document.getElementById(
-        "telepon-detail"
-      ).textContent = `: ${teleponPembeli}`;
-      document.getElementById(
-        "alamat-detail"
-      ).textContent = `: ${alamatPembeli}`;
+      document.getElementById("telepon-detail").textContent = `: ${teleponPembeli}`;
+      document.getElementById("alamat-detail").textContent = `: ${alamatPembeli}`;
       document.getElementById("menu-detail").textContent = `: ${menuPembeli}`;
-      document.getElementById(
-        "paket-detail"
-      ).textContent = `: ${paketPembeli}`;
-      document.getElementById(
-        "harga-detail"
-      ).textContent = `: ${hargaPerKotakTampil}`;
-      document.getElementById(
-        "jumlah-detail"
-<<<<<<< HEAD
-      ).textContent = `: ${jumlahKotakPembeli}`;
-=======
-      ).textContent = `: ${kotakPembeli}`;
->>>>>>> 61c56c7841f0d0bd7344f5700f46687cb72dfaf0
-      document.getElementById("total-harga-detail").textContent = `: ${rupiah(
-        totalHarga
-      )}`;
+      document.getElementById("paket-detail").textContent = `: ${paketPembeli}`;
+      document.getElementById("harga-detail").textContent = `: ${hargaPerKotakTampil}`;
+      document.getElementById("jumlah-detail").textContent = `: ${jumlahKotakPembeli}`;
+      document.getElementById("total-harga-detail").textContent = `: ${rupiah(totalHarga)}`;
 
       modalKonfirmasi.classList.remove("hidden");
-    };
 
-    // open modal berhasil
-    document
+       // open modal berhasil
+      document
       .getElementById("btn-konfirmasi")
       .addEventListener("click", function () {
+        // masukkin di localstorage
+        const menu = {
+          nama: namaPembeli,
+          telepon: teleponPembeli,
+          jenis: menuPembeli,
+          paket: paketPembeli,
+          jumlah: jumlahKotakPembeli,
+          alamat: alamatPembeli,
+          harga: hargaPerKotak,
+          total: totalHarga,
+          status: 'pending'
+        };
+
+        localStorage.setItem('menu', JSON.stringify(menu));
+
         document.getElementById("modal-berhasil").classList.remove("hidden");
         document.getElementById("modal-konfirmasi").classList.add("hidden");
         document.getElementById("modal-order").classList.add("hidden");
         document.querySelector("form").reset();
       });
+    };
+
 
     // contactform
     document.getElementById('contact-form').addEventListener('submit', function (event) {

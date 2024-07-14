@@ -49,6 +49,7 @@
                     confirmButtonText: 'OK'
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        localStorage.setItem('login', true);
                         window.location.href = 'menu.html';
                     }
                 });
