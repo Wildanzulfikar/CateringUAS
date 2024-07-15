@@ -53,9 +53,9 @@
                                     <label for="jenisMenu" class="font-semibold">Jenis Menu</label>
                                     <select id="jenisMenu" name="jenisMenu"
                                         class="rounded-sm border border-gray-300 p-1 text-black">
-                                        <option value="ayam">Ayam</option>
-                                        <option value="sapi">Sapi</option>
-                                        <option value="ikan">Ikan</option>
+                                        <option value="Ayam">Ayam</option>
+                                        <option value="Sapi">Sapi</option>
+                                        <option value="Ikan">Ikan</option>
                                     </select>
                                 </div>
                                 <div class="flex flex-col">
@@ -108,11 +108,6 @@
             const jenisMenu = document.getElementById('jenisMenu').value;
             const harga = document.getElementById('harga').value;
             const file = document.getElementById('file').files[0];
-            console.log(namaPaket);
-            console.log(deskripsi);
-            console.log(jenisMenu);
-            console.log(harga);
-            console.log(file);
 
             // convert image
             const reader = new FileReader();
@@ -128,8 +123,6 @@
                 harga: harga,
                 gambar: base64String
                 };
-
-                console.log(menu);
 
                 const menuList = JSON.parse(localStorage.getItem('menuList')) || [];
                 menuList.push(menu);

@@ -54,8 +54,8 @@
                                     </select>
                                 </div>
                                 <div class="flex flex-col">
-                                    <label for="deskripsi">Harga</label>
-                                    <input type="text" id="deskripsi" name="deskripsi" class="rounded-sm text-black p-1">
+                                    <label for="harga">Harga</label>
+                                    <input type="text" id="harga" name="harga" class="rounded-sm text-black p-1">
                                 </div>
                             </div>
                             <div class="flex justify-center mt-4 rounded-md bg-white text-black p-2 ">
@@ -90,6 +90,59 @@
             if (!isLoggedIn) {
                 window.location.href = 'login.html';
             }
+
+            // Memuat data yang akan diedit
+            let editItem = JSON.parse(localStorage.getItem('editItem'));
+            if (editItem) {
+                document.getElementById('namaPaket').value = editItem.nama;
+                document.getElementById('deskripsi').value = editItem.deskripsi;
+                document.getElementById('jenisMenu').value = editItem.jenis;
+                document.getElementById('harga').value = editItem.harga;
+                document.getElementById('file').dataset.oldImage = editItem.gambar;
+            }
+
+            // mengedit data di form
+            document.getElementById('editMenu').addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const namaPaket = document.getElementById('namaPaket').value;
+                const deskripsi = document.getElementById('deskripsi').value;
+                const jenisMenu = document.getElementById('jenisMenu').value;
+                const harga = document.getElementById('harga').value;
+                const file = document.getElementById('file').files[0];
+                let base64String = document.getElementById('file').dataset.oldImage;
+
+                // convert image
+                if (file) {
+                    const reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.onload = function() {
+                        let base65String = reader.result;
+                        saveMenu(namaPaket, deskripsi, jenisMenu, harga, base65String);
+                    };
+                } else {
+                    saveMenu(namaPaket, deskripsi, jenisMenu, harga, base64String);
+                }
+            });
+
+            function saveMenu(nama, deskripsi, jenis, harga, gambar) {
+                const menu = {
+                    nama: nama,
+                    deskripsi: deskripsi,
+                    jenis: jenis,
+                    harga: harga,
+                    gambar: gambar
+                };
+
+                let dataMenu = JSON.parse(localStorage.getItem('menuList')) || [];
+                let index = dataMenu.findIndex(item => item.nama === editItem.nama);
+                if (index !== -1) {
+                    dataMenu[index] = menu;
+                    localStorage.setItem("menuList", JSON.stringify(dataMenu));
+                    localStorage.removeItem('editItem');
+                    window.location.href = 'menu.html';
+                }   
+            }
         });
 
         // Fungsi logout
@@ -97,6 +150,9 @@
         logout.addEventListener('click', function() {
             localStorage.removeItem('login');
         });
+
+        // fungsi mengisi data di form
+
     </script>
 </body>
 </html>

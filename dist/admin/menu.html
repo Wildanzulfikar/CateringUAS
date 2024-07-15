@@ -53,7 +53,7 @@
                             <td class="text-center">Rp 23.000,00</td>
                             <td>
                                 <div class="flex gap-x-2 justify-center">
-                                    <i data-feather="edit" onclick="goToEdit()" class="text-blue-950 cursor-pointer"></i>
+                                    <i data-feather="edit" onclick="goToEdit('A', 'Ayam')" class="text-blue-950 cursor-pointer"></i>
                                     <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
                                 </div>
                             </td>
@@ -68,7 +68,7 @@
                             <td class="text-center">Rp 25.000,00</td>
                             <td>
                                 <div class="flex gap-x-2 justify-center">
-                                    <i data-feather="edit" onclick="goToEdit()" class="text-blue-950 cursor-pointer"></i>
+                                    <i data-feather="edit" onclick="goToEdit('B', 'Ayam')" class="text-blue-950 cursor-pointer"></i>
                                     <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
                                 </div>
                             </td>
@@ -83,7 +83,7 @@
                             <td class="text-center">Rp 30.000,00</td>
                             <td>
                                 <div class="flex gap-x-2 justify-center">
-                                    <i data-feather="edit" onclick="goToEdit()" class="text-blue-950 cursor-pointer"></i>
+                                    <i data-feather="edit" onclick="goToEdit('C', 'Ayam')" class="text-blue-950 cursor-pointer"></i>
                                     <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
                                 </div>
                             </td>
@@ -98,7 +98,7 @@
                             <td class="text-center">Rp 35.000,00</td>
                             <td>
                                 <div class="flex gap-x-2 justify-center">
-                                    <i data-feather="edit" onclick="goToEdit()" class="text-blue-950 cursor-pointer"></i>
+                                    <i data-feather="edit" onclick="goToEdit('D','Ayam')" class="text-blue-950 cursor-pointer"></i>
                                     <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
                                 </div>
                             </td>
@@ -122,10 +122,6 @@
             container.classList.toggle('w-12');
         })
 
-        function goToEdit(){
-            window.location.href = "edit.html";
-        }
-
         // cek status login
         document.addEventListener('DOMContentLoaded', function() {
             const isLoggedIn = localStorage.getItem('login');
@@ -145,30 +141,37 @@
             let row = element.closest('tr');
             row.remove();
 
-            // Tambahan logika untuk menghapus dari localStorage
-            let dataAkanDihapus = JSON.parse(localStorage.getItem("menuList")) || [];
             let namaMenu = row.cells[0].textContent.trim(); 
 
             // Cari indeks data yang akan dihapus
             let index = dataMenu.findIndex(item => item.nama === namaMenu);
             if (index !== -1) {
                 dataMenu.splice(index, 1); 
-                localStorage.setItem("menuList", JSON.stringify(dataAkanDihapus)); 
+                console.log(dataMenu.splice(index, 1));
+                localStorage.removeItem("menuList");
             }
         }
+
+        
+        // convert nilai int menjadi rupiah
+        const rupiah = (number) => {
+            return new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR",
+            }).format(number);
+        };
 
         // menampilkan data menu
         let dataMenu = JSON.parse(localStorage.getItem("menuList"));
         let tabel = document.getElementById('table-menu');
         let baris = document.createElement('tr');
-        console.log(dataMenu);
 
         dataMenu.map(data => {
             let baris = document.createElement('tr');
                 
             let namaCell = document.createElement('td');
             namaCell.classList.add('text-center');
-            namaCell.textContent = data.nama;
+            namaCell.textContent = `Paket ${data.nama}`;
             baris.appendChild(namaCell);
             
             let jenisCell = document.createElement('td');
@@ -186,12 +189,12 @@
             
             let hargaCell = document.createElement('td');
             hargaCell.classList.add('text-center');
-            hargaCell.textContent = data.harga;
+            hargaCell.textContent = rupiah(data.harga);
             baris.appendChild(hargaCell);
             
             let actionCell = document.createElement('td');
             actionCell.innerHTML = `<div class="flex gap-x-2 justify-center">
-                                        <i data-feather="edit" onclick="goToEdit()"class="text-blue-950 cursor-pointer"></i>
+                                        <i data-feather="edit" onclick="goToEdit('${data.nama}','${data.jenis}')"class="text-blue-950 cursor-pointer"></i>
                                         <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
                                     </div>`;
             baris.appendChild(actionCell);
@@ -199,7 +202,16 @@
             tabel.appendChild(baris);
         })
 
-        feather.replace()
+        feather.replace();
+
+        function goToEdit(namaMenu,jenisMenu){
+            let dataMenu = JSON.parse(localStorage.getItem("menuList"));
+            let item = dataMenu.find(item => item.nama === namaMenu && item.jenis === jenisMenu);
+            localStorage.setItem("editItem", JSON.stringify(item));
+            window.location.href = 'edit.html';
+        }
+
+        feather.replace();
     </script>
 </body>
 </html>
