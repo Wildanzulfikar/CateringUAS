@@ -96,9 +96,11 @@
             if (editItem) {
                 document.getElementById('namaPaket').value = editItem.nama;
                 document.getElementById('deskripsi').value = editItem.deskripsi;
-                document.getElementById('jenisMenu').value = editItem.jenis;
+                document.getElementById('jenisMenu').value = editItem.jenisKategori;
                 document.getElementById('harga').value = editItem.harga;
                 document.getElementById('file').dataset.oldImage = editItem.gambar;
+
+                // localStorage.removeItem('editItem');
             }
 
             // mengedit data di form
@@ -135,13 +137,18 @@
                 };
 
                 let dataMenu = JSON.parse(localStorage.getItem('menuList')) || [];
-                let index = dataMenu.findIndex(item => item.nama === editItem.nama);
-                if (index !== -1) {
-                    dataMenu[index] = menu;
-                    localStorage.setItem("menuList", JSON.stringify(dataMenu));
-                    localStorage.removeItem('editItem');
+                if(dataMenu) {
+                    let index = dataMenu.findIndex(item => item.nama === editItem.nama);
+                    if (index !== -1) {
+                        dataMenu[index] = menu;
+                        localStorage.setItem("menuList", JSON.stringify(dataMenu));
+                        localStorage.removeItem('editItem');
+                        window.location.href = 'menu.html';
+                    }   
+
                     window.location.href = 'menu.html';
-                }   
+                }
+                
             }
         });
 

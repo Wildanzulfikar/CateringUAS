@@ -7,7 +7,7 @@
     <link href="https://unpkg.com/feather-icons" rel="stylesheet"> 
     <title>Menu</title>
 </head>
-<body class="bg-slate-100">
+<body onload="readData()" class="bg-slate-100">
     <div class="flex w-full">
         <header id="container" class="h-screen w-1/5 text-white bg-blue-950 fixed">
             <div class="menu flex justify-start mx-2 mt-4 ">
@@ -35,74 +35,17 @@
                         <h1>Menu</h1>
                     </div>
                     <table id="table-menu">
-                        <tr class="bg-blue-950 text-white">
-                            <th class="text-center">Nama Menu</th>
-                            <th class="text-center">Jenis Menu</th>
-                            <th class="text-center w-[15%]">Gambar</th>
-                            <th class="text-center w-[20%]">Deskripsi</th>
-                            <th class="text-center">Harga</th>
-                            <th class="text-center">Action</th>
-                        </tr>
-                        <tr>
-                            <td class="text-center">Paket A</td>
-                            <td class="text-center">Ayam</td>
-                            <td>
-                                <img src="../img/ayam-bakar.jpg" alt="gambar-menu" class="w-full">
-                            </td>
-                            <td>Nasi, ayam bakar paha, mie goreng, acar, sambal, dan orek tempe</td>
-                            <td class="text-center">Rp 23.000,00</td>
-                            <td>
-                                <div class="flex gap-x-2 justify-center">
-                                    <i data-feather="edit" onclick="goToEdit('A', 'Ayam')" class="text-blue-950 cursor-pointer"></i>
-                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">Paket B</td>
-                            <td class="text-center">Ayam</td>
-                            <td>
-                                <img src="../img/nasi-ayamjpg.jpg" alt="gambar-menu" class="w-full">
-                            </td>
-                            <td>Nasi, ayam goreng paha, kangkung, acar, selada, tahu, dan tempe</td>
-                            <td class="text-center">Rp 25.000,00</td>
-                            <td>
-                                <div class="flex gap-x-2 justify-center">
-                                    <i data-feather="edit" onclick="goToEdit('B', 'Ayam')" class="text-blue-950 cursor-pointer"></i>
-                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">Paket C</td>
-                            <td class="text-center">Ayam</td>
-                            <td>
-                                <img src="../img/nasiliwet.jpg" alt="gambar-menu" class="w-full">
-                            </td>
-                            <td>Nasi Liwet, ayam goreng paha, tempe, timun, selada, tahu, dan sambal</td>
-                            <td class="text-center">Rp 30.000,00</td>
-                            <td>
-                                <div class="flex gap-x-2 justify-center">
-                                    <i data-feather="edit" onclick="goToEdit('C', 'Ayam')" class="text-blue-950 cursor-pointer"></i>
-                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">Paket D</td>
-                            <td class="text-center">Ayam</td>
-                            <td>
-                                <img src="../img/ayam-d.jpg" alt="gambar-menu" class="w-full">
-                            </td>
-                            <td>Nasi, ayam bakar paha, mie goreng, acar, sambal, orek tempe dan teh manis</td>
-                            <td class="text-center">Rp 35.000,00</td>
-                            <td>
-                                <div class="flex gap-x-2 justify-center">
-                                    <i data-feather="edit" onclick="goToEdit('D','Ayam')" class="text-blue-950 cursor-pointer"></i>
-                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
-                                </div>
-                            </td>
-                        </tr>
+                        <thead>
+                            <tr class="bg-blue-950 text-white">
+                                <th class="text-center">Nama Menu</th>
+                                <th class="text-center">Jenis Menu</th>
+                                <th class="text-center w-[15%]">Gambar</th>
+                                <th class="text-center w-[20%]">Deskripsi</th>
+                                <th class="text-center">Harga</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="body-table"></tbody>
                     </table>
                 </div>
             </section>
@@ -110,8 +53,6 @@
     </div>
     <script src="https://unpkg.com/feather-icons"></script>
     <script>
-        feather.replace()
-
         const menu = document.getElementById('menu');
         
         menu.addEventListener('click', function() {
@@ -136,6 +77,67 @@
             localStorage.removeItem('login');
         });
 
+        // fungsi tampil data
+        let dataAja = [
+            {
+                nama: 'A',
+                jenis: 'Ayam',
+                jenisKategori: 'ayam',
+                gambar: '../img/ayam-bakar.jpg',
+                deskripsi: 'Nasi, ayam goreng paha, kangkung, acar, selada, tahu, dan tempe',
+                harga: 23000
+            },
+            {
+                nama: 'B',
+                jenis: 'Ayam',
+                jenisKategori: 'ayam',
+                gambar: '../img/nasi-ayamjpg.jpg',
+                deskripsi: 'Nasi, ayam bakar paha, mie goreng, acar, sambal, dan orek tempe',
+                harga: 25000
+            },
+            {
+                nama: 'C',
+                jenis: 'Ayam',
+                jenisKategori: 'ayam',
+                gambar: '../img/nasiliwet.jpg',
+                deskripsi: 'Nasi Liwet, ayam goreng paha, tempe, timun, selada, tahu, dan sambal',
+                harga: 30000
+            },
+            {
+                nama: 'D',
+                jenis: 'Ayam',
+                jenisKategori: 'ayam',
+                gambar: '../img/ayam-d.jpg',
+                deskripsi: 'Nasi, ayam bakar paha, mie goreng, acar, sambal, orek tempe dan teh manis',
+                harga: 35000
+            }
+        ]
+
+        function readData(){
+            let tabel = document.getElementById('body-table');
+            let element = '';
+            dataAja.map(data => (
+                element += `<tr>
+                            <td class="text-center">Paket ${data.nama}</td>
+                            <td class="text-center">${data.jenis}</td>
+                            <td>
+                                <img src="${data.gambar}" alt="gambar-menu" class="w-full">
+                            </td>
+                            <td>${data.deskripsi}</td>
+                            <td class="text-center">${rupiah(data.harga)}</td>
+                            <td>
+                                <div class="flex gap-x-2 justify-center">
+                                    <i data-feather="edit" onclick="goToEditDumy('${data.nama}','${data.jenisKategori}')" class="text-blue-950 cursor-pointer"></i>
+                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
+                                </div>
+                            </td>
+                        </tr>`
+            ))
+
+            tabel.innerHTML = element;
+            feather.replace()
+        }
+
         // Fungsi hapus data
         function hapusData(element) {
             let row = element.closest('tr');
@@ -152,6 +154,19 @@
             }
         }
 
+        // edit data dumy
+        function goToEdit(namaMenu,jenisMenu){
+            let dataMenu = JSON.parse(localStorage.getItem("menuList"));
+            let item = dataMenu.find(item => item.nama === namaMenu && item.jenis === jenisMenu);
+            localStorage.setItem("editItem", JSON.stringify(item));
+            window.location.href = 'edit.html';
+        }
+
+        function goToEditDumy(nama,jenis){
+            let data = dataAja.find(item => item.nama === nama && item.jenisKategori === jenis);
+            localStorage.setItem("editItem", JSON.stringify(data));
+            window.location.href = 'edit.html';
+        }
         
         // convert nilai int menjadi rupiah
         const rupiah = (number) => {
@@ -201,15 +216,6 @@
             
             tabel.appendChild(baris);
         })
-
-        feather.replace();
-
-        function goToEdit(namaMenu,jenisMenu){
-            let dataMenu = JSON.parse(localStorage.getItem("menuList"));
-            let item = dataMenu.find(item => item.nama === namaMenu && item.jenis === jenisMenu);
-            localStorage.setItem("editItem", JSON.stringify(item));
-            window.location.href = 'edit.html';
-        }
 
         feather.replace();
     </script>
