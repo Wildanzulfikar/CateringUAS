@@ -4,14 +4,13 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="../output.css" rel="stylesheet" />
-        <link href="https://unpkg.com/feather-icons" rel="stylesheet" />
         <title>Transaksi Menu</title>
     </head>
     <body>
         <div class="flex">
         <div id="container" class="h-screen w-1/5 text-white bg-blue-950 fixed">
             <div class="menu flex justify-start mx-2 mt-4">
-            <i data-feather="menu" id="menu" class="cursor-pointer"></i>
+            <i data-feather="menu" id="menu" class="cursor-pointer" onclick="clickMenu()"></i>
             </div>
             <div id="items" class="min-h-full flex flex-col items-center">
             <div class="flex items-center mt-4">
@@ -54,28 +53,32 @@
                 <h1>Transaksi Menu</h1>
                 </div>
                 <table id="transaksi-tabel" class="w-full">
-                <tr class="bg-blue-950 text-white">
-                    <th class="w-[15%] text-center">Nama</th>
-                    <th class="w-[15%] text-center">Nomor Telepon</th>
-                    <th class="w-[15%] text-center">Alamat</th>
-                    <th class="w-[20%] text-center">Jenis Menu</th>
-                    <th class="w-[15%] text-center">Paket</th>
-                    <th class="w-[15%] text-center">Harga Per Kotak</th>
-                    <th class="w-[15%] text-center">Jumlah</th>
-                    <th class="w-[20%] text-center">Total Harga</th>
-                    <th class="w-[30%] text-center">Status</th>
-                </tr>
-                <tr>
-                    <td>Wildan Zulfikar</td>
-                    <td class="text-center">08343254</td>
-                    <td>Semarang</td>
-                    <td class="text-center">Ayam</td>
-                    <td class="text-center">Paket A</td>
-                    <td class="text-center">Rp 100.000,00</td>
-                    <td class="text-center">50</td>
-                    <td class="text-center">Rp 500.000,00</td>
-                    <td class="text-center cursor-pointer" id="status" onclick="changeStatus(event, this)">Pending</td>
-                </tr>
+                    <thead>
+                        <tr class="bg-blue-950 text-white">
+                            <th class="w-[15%] text-center">Nama</th>
+                            <th class="w-[15%] text-center">Nomor Telepon</th>
+                            <th class="w-[15%] text-center">Alamat</th>
+                            <th class="w-[20%] text-center">Jenis Menu</th>
+                            <th class="w-[15%] text-center">Paket</th>
+                            <th class="w-[15%] text-center">Harga Per Kotak</th>
+                            <th class="w-[15%] text-center">Jumlah</th>
+                            <th class="w-[20%] text-center">Total Harga</th>
+                            <th class="w-[30%] text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body-transaksi">
+                        <tr>
+                            <td>Wildan Zulfikar</td>
+                            <td class="text-center">08343254</td>
+                            <td>Semarang</td>
+                            <td class="text-center">Ayam</td>
+                            <td class="text-center">Paket A</td>
+                            <td class="text-center">Rp 100.000,00</td>
+                            <td class="text-center">50</td>
+                            <td class="text-center">Rp 500.000,00</td>
+                            <td class="text-center cursor-pointer" id="status" onclick="changeStatus(event, this)">Pending</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
             </section>
@@ -83,93 +86,91 @@
         </div>
         <script src="https://unpkg.com/feather-icons"></script>
         <script>
-        feather.replace();
+            feather.replace();
 
-        const menu = document.getElementById("menu");
+            const menu = document.getElementById("menu");
 
-        menu.addEventListener("click", function () {
-            const items = document.getElementById("items");
-            const container = document.getElementById("container");
+            menu.addEventListener("click", function () {
+                const items = document.getElementById("items");
+                const container = document.getElementById("container");
 
-            items.classList.toggle("hidden");
-            container.classList.toggle("w-12");
-        });
+                items.classList.toggle("hidden");
+                container.classList.toggle("w-12");
+            });
 
-        // cek status login
-        document.addEventListener("DOMContentLoaded", function () {
-            const isLoggedIn = localStorage.getItem("login");
-            if (!isLoggedIn) {
-            window.location.href = "login.html";
-            }
-        });
-
-        // Fungsi logout
-        const logout = document.getElementById("logout");
-        logout.addEventListener("click", function () {
-            localStorage.removeItem("login");
-        });
-
-        // convert nilai int menjadi rupiah
-        const rupiah = (number) => {
-            return new Intl.NumberFormat("id-ID", {
-                style: "currency",
-                currency: "IDR",
-            }).format(number);
-        };
-
-        // menampilkan data
-        let dataTransaksi = JSON.parse(localStorage.getItem("menu"));
-        const tabelTransaksi = document.getElementById("transaksi-tabel");
-        const row = document.createElement("tr");
-
-        const cells = [
-        { content: dataTransaksi.nama, className: "" }, 
-        { content: dataTransaksi.telepon, className: "text-center" }, 
-        { content: dataTransaksi.alamat, className: "" },
-        { content: dataTransaksi.jenis, className: "text-center" }, 
-        { content: `Paket ${dataTransaksi.paket}`, className: "text-center" },
-        { content: rupiah(dataTransaksi.harga), className: "text-center" }, 
-        { content: dataTransaksi.jumlah, className: "text-center" }, 
-        { content: rupiah(dataTransaksi.total), className: "text-center" }, 
-        { content: dataTransaksi.status, className: "text-center", className2: "cursor-pointer", id: "status" }, 
-        ];
-
-        // rubah status
-        function changeStatus(event, element) {
-            if (element.textContent === "Pending" || element.textContent === "pending") {
-                element.textContent = "Completed";
-                // Perbarui data di localStorage
-                if (dataTransaksi) {
-                    dataTransaksi.status = "Completed";
-                    localStorage.setItem("menu", JSON.stringify(dataTransaksi));
+            // cek status login
+            document.addEventListener("DOMContentLoaded", function () {
+                const isLoggedIn = localStorage.getItem("login");
+                if (!isLoggedIn) {
+                window.location.href = "login.html";
                 }
-            }
-        }
+            });
 
-        cells.forEach(cellData => {
-            const cell = document.createElement("td");
-            cell.textContent = cellData.content;
+            // Fungsi logout
+            const logout = document.getElementById("logout");
+            logout.addEventListener("click", function () {
+                localStorage.removeItem("login");
+            });
 
-            if(cellData.className !== "") {
-                cell.classList.add(cellData.className);
+            // convert nilai int menjadi rupiah
+            const rupiah = (number) => {
+                return new Intl.NumberFormat("id-ID", {
+                    style: "currency",
+                    currency: "IDR",
+                }).format(number);
+            };
 
-                if(cellData.className2 === "cursor-pointer") {
-                    cell.classList.add(cellData.className2);
+            // menampilkan data
+            let dataTransaksi = JSON.parse(localStorage.getItem("menu"));
+            const tabelTransaksi = document.getElementById("transaksi-tabel");
+            const row = document.createElement("tr");
+
+            const cells = [
+            { content: dataTransaksi.nama, className: "" }, 
+            { content: dataTransaksi.telepon, className: "text-center" }, 
+            { content: dataTransaksi.alamat, className: "" },
+            { content: dataTransaksi.jenis, className: "text-center" }, 
+            { content: `Paket ${dataTransaksi.paket}`, className: "text-center" },
+            { content: rupiah(dataTransaksi.harga), className: "text-center" }, 
+            { content: dataTransaksi.jumlah, className: "text-center" }, 
+            { content: rupiah(dataTransaksi.total), className: "text-center" }, 
+            { content: dataTransaksi.status, className: "text-center", className2: "cursor-pointer", id: "status" }, 
+            ];
+
+            // rubah status
+            function changeStatus(event, element) {
+                if (element.textContent === "Pending") {
+                    element.textContent = "Completed";
+                    // Perbarui data di localStorage
+                    if (dataTransaksi) {
+                        dataTransaksi.status = "Completed";
+                        localStorage.setItem("menu", JSON.stringify(dataTransaksi));
+                    }
                 }
             }
 
-            if (cellData.id) {
-                cell.id = cellData.id;
-                cell.addEventListener("click", (event) => changeStatus(event, cell));
-            }
+            cells.forEach(cellData => {
+                const cell = document.createElement("td");
+                cell.textContent = cellData.content;
 
-            row.appendChild(cell);
-        });
+                if(cellData.className !== "") {
+                    cell.classList.add(cellData.className);
 
-        // Menambahkan baris ke dalam tabel
-        tabelTransaksi.appendChild(row);
+                    if(cellData.className2 === "cursor-pointer") {
+                        cell.classList.add(cellData.className2);
+                    }
+                }
 
+                if (cellData.id) {
+                    cell.id = cellData.id;
+                    cell.addEventListener("click", (event) => changeStatus(event, cell));
+                }
 
+                row.appendChild(cell);
+            });
+
+            // Menambahkan baris ke dalam tabel
+            tabelTransaksi.appendChild(row);
         </script>
     </body>
 </html>

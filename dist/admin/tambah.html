@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../output.css" rel="stylesheet">
-    <link href="https://unpkg.com/feather-icons" rel="stylesheet">
     <title>Tambah Menu</title>
 </head>
 
@@ -13,7 +12,7 @@
     <div class="flex">
         <div id="container" class="h-screen w-1/5 text-white bg-blue-950 fixed">
             <div class="menu flex justify-start mx-2 mt-4">
-                <i data-feather="menu" id="menu" class="cursor-pointer"></i>
+                <i data-feather="menu" id="menu" class="cursor-pointer" onclick="clickMenu()"></i>
             </div>
             <div id="items" class=" min-h-full flex flex-col items-center">
                 <div class="flex items-center mt-4">
@@ -77,69 +76,7 @@
         </div>
     </div>
     <script src="https://unpkg.com/feather-icons"></script>
-    <script>
-        feather.replace()
-
-        const menu = document.getElementById('menu');
-
-        menu.addEventListener('click', function (event) {
-            event.preventDefault();
-            const items = document.getElementById('items')
-            const container = document.getElementById('container');
-
-            items.classList.toggle('hidden');
-            container.classList.toggle('w-12');
-        })
-
-        // cek status login
-        document.addEventListener('DOMContentLoaded', function() {
-            const isLoggedIn = localStorage.getItem('login');
-            if (!isLoggedIn) {
-                window.location.href = 'login.html';
-            }
-        });
-
-        // fungsi menambahkan menu baru
-        document.getElementById('tambah-menu').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const namaPaket = document.getElementById('namaPaket').value;
-            const deskripsi = document.getElementById('deskripsi').value;
-            const jenisMenu = document.getElementById('jenisMenu').value;
-            const harga = document.getElementById('harga').value;
-            const file = document.getElementById('file').files[0];
-
-            // convert image
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = function() {
-                const base64String = reader.result;
-                console.log(base64String);
-
-                const menu = {
-                nama: namaPaket,
-                deskripsi: deskripsi,
-                jenis: jenisMenu,
-                harga: harga,
-                gambar: base64String
-                };
-
-                const menuList = JSON.parse(localStorage.getItem('menuList')) || [];
-                menuList.push(menu);
-                localStorage.setItem('menuList', JSON.stringify(menuList));
-
-                window.location.href = 'menu.html';
-            };
-
-            
-        });
-
-        // Fungsi logout
-        const logout = document.getElementById('logout');
-        logout.addEventListener('click', function() {
-            localStorage.removeItem('login');
-        });
-    </script>
+    <script src="../js/index.js"></script>
 </body>
 
 </html>

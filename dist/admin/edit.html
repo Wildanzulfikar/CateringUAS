@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../output.css" rel="stylesheet">
-    <link href="https://unpkg.com/feather-icons" rel="stylesheet"> 
     <title>Edit Menu</title>
 </head>
 <body>
     <div class="flex">
         <div id="container" class="h-screen w-1/5 text-white bg-blue-950 fixed">
             <div class="menu flex justify-start mx-2 mt-4">
-                <i data-feather="menu" id="menu" class="cursor-pointer"></i>
+                <i data-feather="menu" id="menu" class="cursor-pointer" onclick="clickMenu()"></i>
             </div>
             <div id="items" class=" min-h-full flex flex-col items-center">
                 <div class="flex items-center mt-4">
@@ -48,9 +47,9 @@
                                 <div class="flex flex-col">
                                     <label for="jenisMenu" class="font-semibold">Jenis Menu</label>
                                     <select id="jenisMenu" name="jenisMenu" class="rounded-sm border border-gray-300 p-1 text-black">
-                                        <option value="ayam">Ayam</option>
-                                        <option value="sapi">Sapi</option>
-                                        <option value="ikan">Ikan</option>
+                                        <option value="Ayam">Ayam</option>
+                                        <option value="Sapi">Sapi</option>
+                                        <option value="Ikan">Ikan</option>
                                     </select>
                                 </div>
                                 <div class="flex flex-col">
@@ -70,7 +69,8 @@
         </div>
     </div>
     <script src="https://unpkg.com/feather-icons"></script>
-    <script>
+    <script src="../js/index.js"></script>
+    <!-- <script>
         feather.replace()
 
         const menu = document.getElementById('menu');
@@ -160,6 +160,6 @@
 
         // fungsi mengisi data di form
 
-    </script>
+    </script> -->
 </body>
 </html>

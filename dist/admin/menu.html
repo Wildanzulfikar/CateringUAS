@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../output.css" rel="stylesheet">
-    <link href="https://unpkg.com/feather-icons" rel="stylesheet"> 
+    <link href="../output.css" rel="stylesheet"> 
     <title>Menu</title>
 </head>
 <body onload="readData()" class="bg-slate-100">
     <div class="flex w-full">
         <header id="container" class="h-screen w-1/5 text-white bg-blue-950 fixed">
             <div class="menu flex justify-start mx-2 mt-4 ">
-                <i data-feather="menu" id="menu" class="cursor-pointer 2"></i>
+                <i data-feather="menu" id="menu" class="cursor-pointer 2" onclick="clickMenu()"></i>
             </div>
             <div id="items" class=" min-h-full flex flex-col items-center">
                 <div class="flex items-center mt-4">
@@ -52,172 +51,6 @@
         </div>
     </div>
     <script src="https://unpkg.com/feather-icons"></script>
-    <script>
-        const menu = document.getElementById('menu');
-        
-        menu.addEventListener('click', function() {
-            const items = document.getElementById('items')
-            const container = document.getElementById('container');
-
-            items.classList.toggle('hidden');
-            container.classList.toggle('w-12');
-        })
-
-        // cek status login
-        document.addEventListener('DOMContentLoaded', function() {
-            const isLoggedIn = localStorage.getItem('login');
-            if (!isLoggedIn) {
-                window.location.href = 'login.html';
-            }
-        });
-
-        // Fungsi logout
-        const logout = document.getElementById('logout');
-        logout.addEventListener('click', function() {
-            localStorage.removeItem('login');
-        });
-
-        // fungsi tampil data
-        let dataAja = [
-            {
-                nama: 'A',
-                jenis: 'Ayam',
-                jenisKategori: 'ayam',
-                gambar: '../img/ayam-bakar.jpg',
-                deskripsi: 'Nasi, ayam goreng paha, kangkung, acar, selada, tahu, dan tempe',
-                harga: 23000
-            },
-            {
-                nama: 'B',
-                jenis: 'Ayam',
-                jenisKategori: 'ayam',
-                gambar: '../img/nasi-ayamjpg.jpg',
-                deskripsi: 'Nasi, ayam bakar paha, mie goreng, acar, sambal, dan orek tempe',
-                harga: 25000
-            },
-            {
-                nama: 'C',
-                jenis: 'Ayam',
-                jenisKategori: 'ayam',
-                gambar: '../img/nasiliwet.jpg',
-                deskripsi: 'Nasi Liwet, ayam goreng paha, tempe, timun, selada, tahu, dan sambal',
-                harga: 30000
-            },
-            {
-                nama: 'D',
-                jenis: 'Ayam',
-                jenisKategori: 'ayam',
-                gambar: '../img/ayam-d.jpg',
-                deskripsi: 'Nasi, ayam bakar paha, mie goreng, acar, sambal, orek tempe dan teh manis',
-                harga: 35000
-            }
-        ]
-
-        function readData(){
-            let tabel = document.getElementById('body-table');
-            let element = '';
-            dataAja.map(data => (
-                element += `<tr>
-                            <td class="text-center">Paket ${data.nama}</td>
-                            <td class="text-center">${data.jenis}</td>
-                            <td>
-                                <img src="${data.gambar}" alt="gambar-menu" class="w-full">
-                            </td>
-                            <td>${data.deskripsi}</td>
-                            <td class="text-center">${rupiah(data.harga)}</td>
-                            <td>
-                                <div class="flex gap-x-2 justify-center">
-                                    <i data-feather="edit" onclick="goToEditDumy('${data.nama}','${data.jenisKategori}')" class="text-blue-950 cursor-pointer"></i>
-                                    <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
-                                </div>
-                            </td>
-                        </tr>`
-            ))
-
-            tabel.innerHTML = element;
-            feather.replace()
-        }
-
-        // Fungsi hapus data
-        function hapusData(element) {
-            let row = element.closest('tr');
-            row.remove();
-
-            let namaMenu = row.cells[0].textContent.trim(); 
-
-            // Cari indeks data yang akan dihapus
-            let index = dataMenu.findIndex(item => item.nama === namaMenu);
-            if (index !== -1) {
-                dataMenu.splice(index, 1); 
-                console.log(dataMenu.splice(index, 1));
-                localStorage.removeItem("menuList");
-            }
-        }
-
-        // edit data dumy
-        function goToEdit(namaMenu,jenisMenu){
-            let dataMenu = JSON.parse(localStorage.getItem("menuList"));
-            let item = dataMenu.find(item => item.nama === namaMenu && item.jenis === jenisMenu);
-            localStorage.setItem("editItem", JSON.stringify(item));
-            window.location.href = 'edit.html';
-        }
-
-        function goToEditDumy(nama,jenis){
-            let data = dataAja.find(item => item.nama === nama && item.jenisKategori === jenis);
-            localStorage.setItem("editItem", JSON.stringify(data));
-            window.location.href = 'edit.html';
-        }
-        
-        // convert nilai int menjadi rupiah
-        const rupiah = (number) => {
-            return new Intl.NumberFormat("id-ID", {
-                style: "currency",
-                currency: "IDR",
-            }).format(number);
-        };
-
-        // menampilkan data menu
-        let dataMenu = JSON.parse(localStorage.getItem("menuList"));
-        let tabel = document.getElementById('table-menu');
-        let baris = document.createElement('tr');
-
-        dataMenu.map(data => {
-            let baris = document.createElement('tr');
-                
-            let namaCell = document.createElement('td');
-            namaCell.classList.add('text-center');
-            namaCell.textContent = `Paket ${data.nama}`;
-            baris.appendChild(namaCell);
-            
-            let jenisCell = document.createElement('td');
-            jenisCell.classList.add('text-center');
-            jenisCell.textContent = data.jenis;
-            baris.appendChild(jenisCell);
-            
-            let gambarCell = document.createElement('td');
-            gambarCell.innerHTML = `<img src="${data.gambar}" alt="gambar-menu" class="w-full">`;
-            baris.appendChild(gambarCell);
-            
-            let deskripsiCell = document.createElement('td');
-            deskripsiCell.textContent = data.deskripsi;
-            baris.appendChild(deskripsiCell);
-            
-            let hargaCell = document.createElement('td');
-            hargaCell.classList.add('text-center');
-            hargaCell.textContent = rupiah(data.harga);
-            baris.appendChild(hargaCell);
-            
-            let actionCell = document.createElement('td');
-            actionCell.innerHTML = `<div class="flex gap-x-2 justify-center">
-                                        <i data-feather="edit" onclick="goToEdit('${data.nama}','${data.jenis}')"class="text-blue-950 cursor-pointer"></i>
-                                        <i data-feather="trash" onclick="hapusData(this)" class="text-blue-950 cursor-pointer"></i>
-                                    </div>`;
-            baris.appendChild(actionCell);
-            
-            tabel.appendChild(baris);
-        })
-
-        feather.replace();
-    </script>
+    <script src="../js/index.js"></script>
 </body>
 </html>
